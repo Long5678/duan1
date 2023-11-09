@@ -1,0 +1,38 @@
+.ctsp{
+    width: 80%;
+    margin: 0 auto;
+}
+.product-detail{
+    left: 814px;
+    top: 280px;
+    position: absolute;
+    color: black;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 400;
+    width: 35%;
+}
+.product-detail h2{
+    font-size: 25px;
+}
+.product-detail .btn{
+    font-size: 25px;
+    background-color: black;
+    color: white;
+    margin-right: 10px;
+}
+.product-detail .btn-cart{
+    font-size: 25px;
+    background-color: #fa0505;
+    color: white;
+}
+.detail{
+    margin-bottom: 100px;
+}
+.detail ul li{
+    list-style-type: none;
+    font-size: 20px;
+}
+.relative-product .boxsp{
+    margin-bottom: 100px;
+}
