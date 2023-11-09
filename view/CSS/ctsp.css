@@ -12,6 +12,13 @@
     font-weight: 400;
     width: 35%;
 }
+.product-detail .soluong{
+    width: 20%;
+    height: 15%;
+    margin: 15px 0;
+    display: flex;
+  }
+
 .product-detail h2{
     font-size: 25px;
 }
