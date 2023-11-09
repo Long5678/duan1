@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/banner.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Trang chủ</title>
 </head>
@@ -11,7 +12,7 @@
     <div class="boxcenter">
         <header>
         <div class="row header">
-            <img class="ml" src="view/image/logo.avif" alt="" width="150px" height="130px"> 
+            <img class="ml" src="image/logo.avif" alt="" width="150px" height="130px"> 
             <div class="boxsearch">
                 <input type="search" placeholder="Tìm kiếm">
                 <button><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></button>
@@ -33,11 +34,58 @@
             </ul>
         </div>
     </header>
+
     <div class="box-banner">
-        <img src="view/image/banner2.jpg" alt="">
+        <div class="banner">
+            <!-- Slideshow container -->
+          <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                <img src="image/banner1.jpg" style="width:100%">
+            <div class="text"></div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="image/banner2.jpg" style="width:100%">
+                <div class="text"></div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="image/banner3.jpg" style="width:100%">
+                <div class="text"></div>
+            </div>
+            <div class="mySlides fade">
+                <img src="image/banner4.jpg" style="width:100%">
+                <div class="text"></div>
+            </div>
+
+            <!-- Next and previous buttons -->
+            </div>
+
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
     </div>
+    </div>
+    
     <div class="boxconten">
         <h2>Nội Dung Chính</h2>
+        <div class="danh muc">
+            <h1>Danh Muc 1</h1>
+
+            <div class="boxsp mb10">
+                <div class="img"><img src="image/sp1.jpg" alt="" style="width: 200px; height: 200px;"></div>
+                <a href="#">Đồng Hồ</a>
+                <p>30$</p>
+                
+            </div>
+
     </div>
     <footer>
         <div class="footer">
@@ -54,9 +102,9 @@
                 </div>
                 <div class="tex-bank">
                     <h3>Thanh toán</h3>
-                    <img src="view/image/footer1.png" alt="" width="300px">
+                    <img src="image/footer1.png" alt="" width="300px">
                     <h3>Theo giỏi chúng tôi trên</h3>
-                    <img src="view/image/footer2.png" alt="" width="130px">
+                    <img src="image/footer2.png" alt="" width="130px">
                 </div>
                 <div class="tex-dc">
                     <h3>Địa chỉ</h3>
@@ -67,5 +115,6 @@
         </div>
     </footer>
     </div>
+    <script src="JS/banner.js"></script>
 </body>
 </html>
