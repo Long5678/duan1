@@ -125,11 +125,14 @@
 }
     /* Box sản phẩm */
 .boxconten{
+    width: 80%;
     text-align: center;
+    margin: 0 auto;
 }
 .mb10{
     margin-bottom: 10px;
     margin-right: 2%;
+    margin-left: 200px;
 }
 
 .boxsp{
@@ -138,8 +141,8 @@
     min-height: 300px;
     border: 1px #eee solid;
     border-radius: 5px;
-    margin-left: 200px;
-    margin-bottom: 20px;
+    width: 22%;
+    margin: 20px;
     text-align: center;
 }
 .boxsp a{
@@ -153,6 +156,15 @@
 .boxsp .img{
     min-height: 230px;
     text-align: center;
+}
+.boxsp button{
+    background-color: rgb(15, 15, 15);
+    color: white;
+    margin-bottom: 10px;
+}
+.boxsp button:hover{
+    background-color: rgb(83, 81, 81);
+    
 }
 /* END */
 
