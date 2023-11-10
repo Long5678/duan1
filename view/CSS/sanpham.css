@@ -188,9 +188,17 @@ header{
 .boxsp button:hover{
     background-color: rgb(83, 81, 81);   
 }
-.fromcontent input[type='button']{
+.fromcontent-sp input[type='button']{
     border-radius: 5px;
     padding: 5px 35px;
+    color: aliceblue;
+    background-color: black;
+    border: 1px #ccc solid;
+}
+
+.fromcontent input[type='button']{
+    border-radius: 5px;
+    padding: 10px 40px;
     color: aliceblue;
     background-color: black;
     border: 1px #ccc solid;
