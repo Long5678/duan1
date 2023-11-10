@@ -195,6 +195,7 @@ header{
     color: aliceblue;
     background-color: black;
     border: 1px #ccc solid;
+    margin-bottom: 10px;
 }
 
 .fromcontent input[type='button']{
