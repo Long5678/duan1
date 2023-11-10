@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 *{
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     }
     
@@ -409,13 +410,6 @@
 
 /* QUỐC DƯƠNG */
 
-*{
-  box-sizing: border-box;
-  font-family:'Times New Roman', Times, serif;
-  font-size: 15px;
-  }
-
-  
   .boxcenter{
       width: 100%;
       margin: 0 auto;
