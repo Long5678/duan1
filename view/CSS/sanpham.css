@@ -147,6 +147,11 @@ header{
     text-align: center;
     margin: 0 auto;
 }
+
+.boxconten-CT{
+    margin-left: 60px;
+}
+
 .mb10{
     margin-bottom: 10px;
     margin-right: 2%;
@@ -159,7 +164,7 @@ header{
     min-height: 300px;
     border: 1px #eee solid;
     border-radius: 5px;
-    width: 22%;
+    width: 20%;
     margin: 20px;
     text-align: center;
 }
@@ -181,8 +186,14 @@ header{
     margin-bottom: 10px;
 }
 .boxsp button:hover{
-    background-color: rgb(83, 81, 81);
-    
+    background-color: rgb(83, 81, 81);   
+}
+.fromcontent input[type='button']{
+    border-radius: 5px;
+    padding: 5px 35px;
+    color: aliceblue;
+    background-color: black;
+    border: 1px #ccc solid;
 }
 /* END */
 
