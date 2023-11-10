@@ -28,10 +28,16 @@
     color: white;
     margin-right: 10px;
 }
+.product-detail .btn:hover{
+    background-color: #302e2e;
+}
 .product-detail .btn-cart{
     font-size: 25px;
     background-color: #fa0505;
     color: white;
+}
+.product-detail .btn-cart:hover{
+    background-color: #f54949c7
 }
 .detail{
     margin-bottom: 100px;
