@@ -76,4 +76,8 @@
     background-color: black;
     border: 1px #ccc solid;
 }
+.detail ul li {
+    display: flex;
+    align-items: center;
+}
 /* END */
