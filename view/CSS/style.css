@@ -149,13 +149,9 @@
         text-decoration: none;
         color: black;
     }
-
     .menu ul li i{
-        margin-right: 50px;
-        float: right;
-        color: black;
+        margin-right: 5px;
     }
-
 
     .box-banner{
         max-width: 100%;
@@ -535,12 +531,6 @@
 
   .menu ul li a:hover{
       text-decoration: none;
-      color: black;
-  }
-
-  .menu ul li i{
-      margin-right: 50px;
-      float: right;
       color: black;
   }
 
