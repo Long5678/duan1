@@ -133,7 +133,7 @@
     
   nav{
     max-width: 100%;
-    background: #636161; /*tô màu cho menu cha*/
+    background: #6f4e37; /*tô màu cho menu cha*/
     border-radius: 5px; /* bo góc */
   }
   nav ul{
@@ -158,14 +158,14 @@
   nav ul li:hover>a{
     background: #0f0f0f00;
     opacity: .7;
-    color: #0a0a0a;
+    color: #ffffff;
   }
   /*menu con*/
   /*Ẩn các menu con cấp 1,2,3*/
   nav li ul{
     display: none;
     position: absolute;
-    left: 245px;
+    left: 35px;
   }
   nav li>ul li{
     width: 100%;
