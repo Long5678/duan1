@@ -131,28 +131,61 @@
     .boxsearch button i{
         color: aliceblue;
     }
+    
+  nav{
+    max-width: 100%;
+    background: #636161; /*tô màu cho menu cha*/
+    border-radius: 5px; /* bo góc */
+  }
+  nav ul{
+    display: flex;
+  }
+  nav> ul li{
+    list-style: none; /* bỏ dấu chấm mặc định của li */
+  }
+  nav> ul li a{
+    display: block;
+    padding: 0 25px;
+    line-height: 50px;
+    color: #f1f2f3;
+    text-decoration: none;
+  }
 
-    .menu{
-        background-color: #666666D9;
-    }
+  nav> ul li:first-child a{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+  /* Khi hover đến li, tô màu cho thẻ a */
+  nav ul li:hover>a{
+    background: #0f0f0f00;
+    opacity: .7;
+    color: #0a0a0a;
+  }
+  /*menu con*/
+  /*Ẩn các menu con cấp 1,2,3*/
+  nav li ul{
+    display: none;
+    position: absolute;
+    left: 245px;
+  }
+  nav li>ul li{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 1px solid #ccc;
+    background: #999;
+    text-align: left;
+  }
+  nav li>ul li:first-child a{
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+  }
 
-    .menu ul li{
-        list-style-type: none;
-        display: inline;
-    }
+  /*khi hover thì hiện menu con*/
+  nav  li:hover > ul{
+    display:  block;
+  }
 
-    .menu ul li a{
-        text-decoration: none;
-        color: aliceblue;
-    }
-
-    .menu ul li a:hover{
-        text-decoration: none;
-        color: black;
-    }
-    .menu ul li i{
-        margin-right: 5px;
-    }
 
     .box-banner{
         max-width: 100%;
@@ -516,24 +549,6 @@
       background-color: black;
   }
 /*  */
-  .menu{
-      background-color: #666666D9;
-  }
-
-  .menu ul li{
-      list-style-type: none;
-      display: inline;
-  }
-
-  .menu ul li a{
-      text-decoration: none;
-      color: aliceblue;
-  }
-
-  .menu ul li a:hover{
-      text-decoration: none;
-      color: black;
-  }
 
 
   .box-banner{
