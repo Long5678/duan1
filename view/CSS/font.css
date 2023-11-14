@@ -1,13 +1,12 @@
-
 @font-face {
     font-family:'Roboto-Regular' ;
     src: url(../FONT/Roboto-Regular.otf);
 }
 
-/* @font-face {
+@font-face {
     font-family:'Roboto-ThinItalic' ;
     src: url(../FONT/Roboto-ThinItalic.otf);
-} */
+}
 
 @font-face {
     font-family:'Roboto-LightItalic' ;

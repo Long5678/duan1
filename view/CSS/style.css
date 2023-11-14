@@ -443,6 +443,13 @@
         background-color: black;
     }
 
+    .fromtaikhoan input[type='password'],
+    .fromtaikhoan input[type='email'],
+    .fromtaikhoan input[type='tel'],
+    .fromtaikhoan input[type='text']{
+      font-family: 'Roboto-Regular';
+    }
+
 /* Trang chủ and dịch vụ */
 
 /* middle web */
