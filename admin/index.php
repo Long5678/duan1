@@ -1,6 +1,6 @@
 <?php
     include 'header.php';
-    include 'pdo.php';
+    include '../model/pdo.php';
     include 'home.php';
 
 ?>
