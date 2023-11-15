@@ -6,6 +6,7 @@
     font-size: 15px;
     scroll-behavior: smooth;
     }
+
     
     .boxcenter{
         width: 100%;
@@ -83,7 +84,7 @@
         width: 80%;
         margin-top: 0px;
         margin: 0 auto;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .header ul li{
@@ -132,7 +133,7 @@
     }
     
   nav{
-    max-width: 100%;
+    width: 100%;
     background: #aaaaaa; /*tô màu cho menu cha*/
     border-radius: 5px; /* bo góc */
   }
@@ -150,24 +151,22 @@
     text-decoration: none;
   }
 
-  nav> ul li:first-child a{
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-  }
+
   /* Khi hover đến li, tô màu cho thẻ a */
   nav ul li:hover>a{
     background: #0f0f0f00;
-    opacity: .7;
     color: black;
   }
 
   nav ul li:hover>.nav1{
     background: #0f0f0f00;
-    opacity: .7;
     color: aliceblue;
   }
   /*menu con*/
   /*Ẩn các menu con cấp 1,2,3*/
+  .menu-con{
+    list-style-type: none;
+  }
   nav li ul{
     display: none;
     position: absolute;
@@ -447,6 +446,61 @@
     .fromtaikhoan input[type='text']{
       font-family: 'Roboto-Regular';
     }
+/* menu con tài khoản */
+    .menu-con {
+      width: 25%;
+      background: #ffff; /* Set background color for parent menu */
+    }
+    
+    .menu-con ul {
+      width: 100%;
+      display: flex;
+      padding: 0;
+    }
+    
+    .menu-con > ul li {
+      list-style: none; /* Remove default bullet points */
+    }
+    
+    .menu-con > ul li a {
+      display: block;
+      background: #ffffff;
+      color: black;
+      padding: 0 25px;
+      line-height: 50px;
+      text-decoration: none;
+    }
+  
+    /* Highlight the 'a' tag when hovering over the 'li' */
+    .menu-con ul li:hover > a {
+      background: black;
+      color: #ffff;
+    }
+    
+    .menu-con ul li:hover > .nav1 {
+      background: black;
+      color: aliceblue;
+    }
+    .tk_list{
+      width: 100%;
+      position: relative;
+    }
+    
+    /* Hide child menus by default */
+    .menu-con li ul {
+      width: 100%;
+      display: none;
+      position: absolute;
+      left: 0;
+    }
+    
+    /* Show child menu when hovering over parent menu item */
+    .menu-con li:hover > ul {
+      display: block;
+    }
+    
+/*END  menu con tài khoản */
+
 /* Trang chủ and dịch vụ */
 
 /* middle web */
