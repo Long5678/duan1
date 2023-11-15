@@ -3,6 +3,7 @@
     include '../model/pdo.php';
     include '../model/danhmuc.php';
     include '../model/sanpham.php';
+    include '../model/taikhoan.php';
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
@@ -130,6 +131,17 @@
                                 $listsanpham = loadall_sanpham();
                                 include "sanpham/list.php";
                                 break;
+            case 'listkh':
+            $listtaikhoan=load_add_taikhoan();
+            include 'taikhoan/list.php';
+            break;
+        case 'xoatk':
+            if (isset($_GET["id"])&&($_GET["id"]>0)) {
+                delete_xoatk($_GET["id"]);
+            }
+            $listtaikhoan=load_add_taikhoan();
+            include 'taikhoan/list.php';
+            break;
     
             default:
             include "home.php";

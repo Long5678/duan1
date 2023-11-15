@@ -403,9 +403,7 @@
 
     .fromtaikhoan-ct{
         margin-left: 100px;
-        margin-bottom: 400px;
     }
-
 
     .fromtaikhoan input[type='password'],
     .fromtaikhoan input[type='email'],
@@ -449,7 +447,6 @@
     .fromtaikhoan input[type='text']{
       font-family: 'Roboto-Regular';
     }
-
 /* Trang chủ and dịch vụ */
 
 /* middle web */
@@ -522,7 +519,10 @@
   margin-bottom: 100px;
 }
 
-/* END trang chủ and dịch vụ */
+/* nav ul {  position: fixed;  top: 0;  width: 100%;} */
+/* nav ul {  position: -webkit-sticky;  position: sticky;  top: 0;} */
+
+/* END trang chủ and dịch vụ */ 
 
 
 
