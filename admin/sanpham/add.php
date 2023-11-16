@@ -1,6 +1,4 @@
-
-
-    <!-- -- -->
+<!-- -- -->
     <div class="container">
         <h1>Product Admin</h1>
         <form action="index.php?act=addsp" method="post" enctype="multipart/form-data">
