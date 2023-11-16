@@ -1,8 +1,19 @@
 <?php
 
-include './view/header.php';
+session_start();
 include './model/pdo.php';
 include './model/taikhoan.php';
+
+if (isset($_SESSION['user'])&&(is_array($_SESSION['user']))) {
+    extract($_SESSION['user']);
+    $role = $_SESSION['user']['role']; 
+if ($role==0) {
+    include './view/header-user.php';
+}
+}else{
+include './view/header.php';
+}
+
 
 if (isset($_GET['act'])&&($_GET['act']!="")) {
     $act=$_GET['act'];
@@ -43,11 +54,14 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                 }
                     include './view/TaiKhoan/dangnhap.php';
                     break;
+        case 'thoat':
+            session_unset();
+            header('location: index.php');  
+            break;
     }
 }else {
     include './view/home.php';
 }
 
-include './view/footer.php';
-
+include './view/footer.php'; 
 ?>
