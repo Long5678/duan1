@@ -1,8 +1,8 @@
 <!-- ------- -->
 
-        <div class="container">
-        <h2>Danh Sách Sản Phẩm</h2>
-        <form action="index.php?act=listsp" method="post">
+      <div class="container">
+      <h2>Danh Sách Sản Phẩm</h2>
+      <form action="index.php?act=listsp" method="post">
                             <input type="text" name="kyw" placeholder="search">
                             <input type="submit" name="listok" value="Go" class="mr-6">
                             <select name="iddm">
@@ -52,12 +52,10 @@
                         ?>
                       
         </table>
-
         <a href="index.php?act=addsp">
           <button type="button" style="margin-top: 10px;">Nhập Thêm</button>
         </a>
-                    </div>
-                    
+                    </div>           
     </div>
 
 
