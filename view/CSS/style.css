@@ -170,10 +170,10 @@
   nav li ul{
     display: none;
     position: absolute;
-    left: 10px;
+    left: 8px;
   }
   nav li>ul li{
-    width: 125%;
+    width: 126%;
     border: none;
     border-bottom: 1px solid #ccc;
     background: #999;
