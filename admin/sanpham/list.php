@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Danh sách sản phẩm</title>
-</head>
-<body>
+<!-- ------- -->
 
-
-        <!--  -->
-    
-<div class="container mt-4">
-<form action="index.php?act=listsp" method="post">
+      <div class="container">
+      <h2>Danh Sách Sản Phẩm</h2>
+      <form action="index.php?act=listsp" method="post">
                             <input type="text" name="kyw" placeholder="search">
                             <input type="submit" name="listok" value="Go" class="mr-6">
                             <select name="iddm">
@@ -26,18 +16,16 @@
                             </select>
                             
                         </form>
-        <table class="table col-6">
-  <thead>
-    <tr>
-    <th scope="col">#</th>
+        <table style="margin-top: 15px">
+        <tr>
+        <th scope="col">#</th>
       <th scope="col">MÃ LOẠI</th>
       <th scope="col">TÊN SẢN PHẨM</th>
       <th scope="col">HÌNH</th>
       <th scope="col">GIÁ</th>
       <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
+        </tr>
+       
   <?php 
                         foreach( $listsanpham as $sanpham) {
                         extract($sanpham);
@@ -55,38 +43,20 @@
                         <td>'.$name.'</td>
                         <td>'.$hinh.'</td>
                         <td>'.$price.'</td>
-                        <td class="col-md-3">
-                        <a href="'.$suasp.'"><button type="button" class="btn btn-warning me-2">Sửa</button></a> 
-                        <a href="'.$xoasp.'"><button type="button" class="btn btn-danger me-2">Xóa</button></a> 
+                        <td>
+                        <a href="'.$suasp.'"><input type="button" value="Sửa" style="width: 60px; background-color: #ffc107;"></a>
+                        <a href="'.$xoasp.'"><input type="button" value="Xóa" style="width: 60px; background-color: #dc3545; color: white;"></a> 
                         </td>
                         </tr>';
                         };
                         ?>
-    <!-- <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>
-        <button>sua</button>
-      
-      <button>sua</button></td>
-    </tr> -->
-    
-  </tbody>
+                      
+        </table>
+        <a href="index.php?act=addsp">
+          <button type="button" style="margin-top: 10px;">Nhập Thêm</button>
+        </a>
+                    </div>           
+    </div>
 
-
-</table>
-       <a href="index.php?act=addsp"><button type="button" class="btn btn-primary mt-3">Nhập Thêm</button></a>
-                    </div>
-</div>
- 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-        </body>
-</html>
-
-        <!-- ------- -->
 
         
