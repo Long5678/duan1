@@ -35,7 +35,6 @@
                             ?>
                             
                         </select>
-                        <input type="text" name="masp" disabled>
                     </div>
             </div>
             <input type="submit" name="themmoi" value="Add Product"></input>
