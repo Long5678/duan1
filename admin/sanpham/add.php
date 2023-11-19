@@ -18,7 +18,7 @@
             <div class="input-group">
             <div class="row mb10"> 
                        Hình<br>
-                    <input type="file" name="hinh" id="">
+                       <input type="file" id="product-image" name="hinh" required>
                     </div>
             </div>  
          

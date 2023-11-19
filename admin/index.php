@@ -66,7 +66,7 @@
                       }
                     
                         insert_sanpham($tensp, $giasp, $hinh, $mota, $iddm);
-                        $thongbao = "Them thanh cong";
+                        $thongbao = "Thêm Thành Công";
                     
                         
                     
