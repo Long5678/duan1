@@ -10,15 +10,33 @@ function check_user($user,$pass){
     return $sp;
 }
 
+function check_usernew($user,$newpass){
+    $sql = "SELECT * FROM customer WHERE user='".$user."' AND pass='".$newpass."'";
+    $sp=pdo_query_one($sql);
+    return $sp;
+}
+
 function check_email($email){
     $sql = "SELECT * FROM customer WHERE email='".$email."'";
     $sp=pdo_query_one($sql);
     return $sp;
 }
 
-function update_taikhoan($id,$user,$pass,$email,$address,$tel){
+function update_taikhoan($id,$user,$newpass,$email,$address,$phone){
 
-    $sql = "UPDATE customer SET user='".$user."',pass='".$pass."',email='".$email."',address='".$address."',tel='".$tel."' WHERE id=".$id;
+    $sql = "UPDATE customer SET user='".$user."',pass='".$newpass."',email='".$email."',address='".$address."',phone='".$phone."' WHERE id=".$id;
+    pdo_execute($sql);
+}
+
+function update_mk($email,$newpass){
+
+    $sql = "UPDATE customer SET pass='".$newpass."' WHERE email='".$email."'";
+    pdo_execute($sql);
+}
+
+function update_thongtin($id,$user,$email,$address,$phone){
+
+    $sql = "UPDATE customer SET user='".$user."',email='".$email."',address='".$address."',phone='".$phone."' WHERE id=".$id;
     pdo_execute($sql);
 }
 
@@ -26,6 +44,16 @@ function load_add_taikhoan(){
     $sql = "SELECT * FROM customer ORDER BY id desc";
     $listtaikhoan=pdo_query($sql);
     return $listtaikhoan;
+}
+
+function getUserEmail($email){
+    $sql = "SELECT * FROM customer WHERE email ='.$email.'";
+    $sp=pdo_query_one($sql);
+    if ($sp) {
+        return $sp;
+    }else{
+        $baoloi = "Email không tồn tại !";
+    }
 }
 
 function delete_xoatk($id){
