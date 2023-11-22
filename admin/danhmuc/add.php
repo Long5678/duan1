@@ -2,10 +2,6 @@
         <h1>Thêm Danh Mục Sản Phẩm</h1>
         <form action="index.php?act=adddm" method="post">
             <div class="input-group">
-                <label for="product-name">Mã Danh mục</label>
-                <input type="text" id="product-name" name="maloai" disabled>
-            </div>
-            <div class="input-group">
                 <label for="product-description">Tên Danh Mục</label>
                 <input type="text" id="product-name" name="tenloai">
             </div>

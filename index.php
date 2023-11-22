@@ -3,7 +3,10 @@
 session_start();
 include './model/pdo.php';
 include './model/taikhoan.php';
-
+include './model/sanpham.php';
+include './model/danhmuc.php';
+include 'global.php';
+$dsdm=loadall_danhmuc();
 if (isset($_SESSION['user'])&&(is_array($_SESSION['user']))) {
     extract($_SESSION['user']);
     $role = $_SESSION['user']['role']; 
@@ -13,11 +16,41 @@ if ($role==0) {
 }else{
 include './view/header.php';
 }
-
+$spnew=loadall_sanpham_home();
+$dstop10=loadall_sanpham_top10();
+$dsdiscount=loadall_sanpham_discount();
 
 if (isset($_GET['act'])&&($_GET['act']!="")) {
     $act=$_GET['act'];
     switch ($act) {
+        case 'sanpham':
+                  include "./view/sanpham/sanpham.php";
+            break;
+        case 'dmsp':
+
+            if (isset($_POST['kyw']) && ($_POST['kyw']!="")) { 
+                $kyw=$_POST['kyw'];
+              }else {
+                  $kyw="";
+              }
+              if (isset($_GET['iddm']) && ($_GET['iddm'] > 0)) { 
+                  $iddm =($_GET['iddm']); 
+                  
+              } else {
+                  $iddm=0;
+              }
+                  $dssp=loadall_sanpham($kyw,$iddm);
+                  $tendm=load_ten_dm($iddm);
+            include "./view/sanpham/dmsp.php";
+            break;
+        case 'sanphamct':
+            if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) { 
+                $onesp = loadone_sanpham($_GET['idsp']);
+                extract($onesp);
+                $sp_cung_loai=load_sanpham_cungloai($_GET['idsp'], $category_id);
+                include "view/sanpham/spct.php";
+            }
+        break;
         case 'dangky':
             if(isset($_POST['dangky'])&&($_POST['dangky'])){
                 if ($_POST['user']&&$_POST['pass']!="") {

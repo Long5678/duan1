@@ -1,3 +1,4 @@
+
 <div class="box-banner">
         <div class="banner">
             <!-- Slideshow container -->
@@ -55,11 +56,24 @@
 <div class="box-content-img">
     <hr><h2>Sản Phẩm Khuyến Mãi</h2><hr>
     <div class="children-box">
-        <div class="box1">
+            <?php 
+                foreach($dsdiscount as $sp) {
+                    extract($sp);
+                    $linksp ="index.php?act=sanphamct&idsp=".$id;
+                    $img=$img_path.$img;
+                    echo '<div class="box1">
+                    <div class="box-box1">
+                    <a href="'.$linksp.'"><img src="'.$img.'" alt="" width="250px"></a>
+                    </div>
+                    <a href="'.$linksp.'"><p>'.$name.'</p></a>
+                   </div>';
+                }
+            ?>
+        <!-- <div class="box1">
          <div class="box-box1">
           <img src="upload/sp1.jpg" alt="" width="250px">
          </div>
-         <p>Cà Phê G7 3in1 – Hộp 21 Gói</p>
+         <a href=""><p>Cà Phê G7 3in1 – Hộp 21 Gói</p></a>
         </div>
         <div class="box1">
              <div class="box-box1">
@@ -72,14 +86,27 @@
                 <img src="upload/sp3.jpg" alt="" width="250px">
             </div>
             <p>Cà Phê Sáng Tạo 2</p>
-        </div>
+        </div> -->
     </div>
 </div>
 
 <div class="box-content-img">
     <hr><h2>Top Sản Phẩm Yêu Thích</h2><hr>
     <div class="children-box mb-50">
-        <div class="box1">
+            <?php 
+                foreach($dstop10 as $sp) {
+                    extract($sp);
+                    $linksp ="index.php?act=sanphamct&idsp=".$id;
+                    $img=$img_path.$img;
+                    echo '<div class="box1">
+                    <div class="box-box1">
+                    <a href="'.$linksp.'"><img src="'.$img.'" alt="" width="250px"></a>
+                    </div>
+                    <a href="'.$linksp.'"><p>'.$name.'</p></a>
+                   </div>';
+                }
+            ?>
+        <!-- <div class="box1">
          <div class="box-box1">
             <img src="upload/legend roman.jpg" alt="" width="250px">
          </div>
@@ -96,7 +123,7 @@
                 <img src="upload/cà phê viên nén decaffeinato.jpg" alt="" width="250px">
             </div>
             <p>Cà phê Sáng tạo 8 (250gr)</p>
-        </div>
+        </div> -->
     </div>
 </div>
 

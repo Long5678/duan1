@@ -1,7 +1,7 @@
 <?php 
 
-function insert_sanpham($tensp, $giasp, $hinh, $mota, $iddm) {
-    $sql="INSERT INTO product(name, price, img, description, category_id) values('$tensp', '$giasp', '$hinh', '$mota', '$iddm')";
+function insert_sanpham($tensp, $giasp, $hinh, $mota, $iddm, $nsx, $dd, $HSD, $kl) {
+    $sql="INSERT INTO product(name, price, img, description, category_id, NSX, dacdiem, hsd, khoiluong) values('$tensp', '$giasp', '$hinh', '$mota', '$iddm', '$nsx', '$dd', '$HSD', '$kl')";
     pdo_execute($sql);
 } 
 
@@ -11,12 +11,17 @@ function delete_sanpham($id) {
 } 
 
 function loadall_sanpham_home() {
-    $sql = "SELECT * FROM product ORDER BY id DESC LIMIT 0,9";
+    $sql = "SELECT * FROM product ORDER BY id DESC LIMIT 0,8";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
 function loadall_sanpham_top10() {
-    $sql = "SELECT * FROM sanpham ORDER BY luotxem DESC LIMIT 0,10";
+    $sql = "SELECT * FROM product ORDER BY view DESC LIMIT 0,3";
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
+}
+function loadall_sanpham_discount() {
+    $sql = "SELECT * FROM product ORDER BY discount DESC LIMIT 0,3";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }

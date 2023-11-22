@@ -14,8 +14,10 @@
                 <div class="tex-bank">
                     <h3>Thanh toán</h3>
                     <img src="./view/image/footer1.png" alt="" width="300px">
-                    <h3>Theo giỏi chúng tôi trên</h3>
-                    <img src="./view/image/footer2.png" alt="" width="130px">
+                    <h3>Theo dõi chúng tôi trên</h3>
+                    <i class="fa-brands fa-facebook" style="color: blue; font-size: 40px; margin-right: 10px"></i>
+                    <i class="fa-brands fa-youtube" style="color: red; font-size: 40px; margin-right: 10px"></i>
+                    <i class="fa-brands fa-twitter" style="color: #1DA1F2; font-size: 40px"></i>
                 </div>
                 <div class="tex-dc">
                     <h3>Địa chỉ</h3>

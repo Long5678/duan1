@@ -38,11 +38,6 @@
                         ?>
                     </table>
                 </div>
-                <div class="row mb10">
-                    <input type="button" value="Chọn tất cả">
-                    <input type="button" value="Bỏ chọn tẩt cả">
-                    <input type="button" value="Xóa các mục chọn">
-                </div>
             </form>
         </div>
     </div>

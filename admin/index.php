@@ -56,6 +56,10 @@
                     $tensp= $_POST['tensp'];
                     $giasp= $_POST['giasp'];
                     $mota= $_POST['mota'];
+                    $nsx= $_POST['nsx'];
+                    $dd= $_POST['dd'];
+                    $HSD= $_POST['HSD'];
+                    $kl= $_POST['kl'];
                     $hinh = $_FILES['hinh']['name'];
                     $target_dir = "../upload/";
                     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
@@ -65,8 +69,8 @@
                        // echo "Sorry, there was an error uploading your file.";
                       }
                     
-                        insert_sanpham($tensp, $giasp, $hinh, $mota, $iddm);
-                        $thongbao = "Them thanh cong";
+                        insert_sanpham($tensp, $giasp, $hinh, $mota, $iddm, $nsx, $dd, $HSD, $kl);
+                        $thongbao = "Thêm thành công";
                     
                         
                     
@@ -142,7 +146,7 @@
             $listtaikhoan=load_add_taikhoan();
             include 'taikhoan/list.php';
             break;
-    
+            
             default:
             include "home.php";
             break;
