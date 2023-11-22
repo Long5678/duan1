@@ -1,7 +1,8 @@
 <!-- -- -->
-    <div class="container">
+<div class="container">
         <h1>Quản Lý Sản Phẩm</h1>
         <form action="index.php?act=addsp" method="post" enctype="multipart/form-data">
+        <div class="input-group">
             <div class="row mb10">
                         Danh mục <br>
                         <select name="iddm" id="">
@@ -9,8 +10,10 @@
                             foreach($listdanhmuc as $danhmuc) {
                                 extract($danhmuc);
                                 echo '<option value="'.$id.'">'.$name.'</option>';
-                            } 
-                            ?>  
+                            }
+                            
+                            ?>
+                            
                         </select>
                     </div>
             </div>
