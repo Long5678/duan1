@@ -68,13 +68,9 @@
                       } else {
                        // echo "Sorry, there was an error uploading your file.";
                       }
-                    
                         insert_sanpham($tensp, $giasp, $hinh, $mota, $iddm, $nsx, $dd, $HSD, $kl);
-                        $thongbao = "Thêm thành công";
-                    
-                        
-                    
-                }
+                        $thongbao = "Thêm thành công";  
+                    }
                 $listdanhmuc = loadall_danhmuc();
                 //var_dump($listdanhmuc);
                 include "sanpham/add.php";
