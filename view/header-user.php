@@ -34,18 +34,25 @@
         </div>
         </header>
         <nav>
-            <ul>
+        <ul>
                 <li style="background-color: black;"><a class="nav1" href=""><i class="fa-solid fa-bars" style="margin-right: 5px;"></i>Danh Mục Sản Phẩm</a>
                     <!-- menu con sổ xuống cấp 1 -->
                     <ul>
-                        <li><a href="sanpham.html">Cà Phê Hạt</a></li>
+                        <?php
+                            foreach ($dsdm as $dm){
+                                extract($dm);
+                                $linkdm = "index.php?act=dmsp&iddm=".$id;
+                                echo '<li><a href="'.$linkdm.'">'.$name.'</a></li>';
+                            }
+                        ?>
+                        <!-- <li><a href="sanpham.html">Cà Phê Hạt</a></li>
                         <li><a href="#">Cà Phê Rang Xay</a></li>
-                        <li><a href="#">Cà Phê Hòa Tan</a></li>
+                        <li><a href="#">Cà Phê Hòa Tan</a></li> -->
                     </ul>
                 </li>
-                <li><a href="home.html">Trang Chủ</a></li>
+                <li><a href="index.php">Trang Chủ</a></li>
                 <li><a href="#">Giới thiệu</a></li>
-                <li><a href="sanpham.html">Sản Phẩm</a></li>
+                <li><a href="index.php?act=sanpham">Sản Phẩm</a></li>
                 <li><a href="index.php?act=service">Dịch vụ</a></li>
                 <li><a href="#footer">Liên hệ</a></li>
             </ul>
