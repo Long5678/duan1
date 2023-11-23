@@ -1,3 +1,8 @@
+<?php
+ob_start();
+include_once './mail/index.php';
+$mail = new Mailer();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +50,7 @@
                 <li><a href="index.php">Trang Chủ</a></li>
                 <li><a href="#">Giới thiệu</a></li>
                 <li><a href="index.php?act=sanpham">Sản Phẩm</a></li>
-                <li><a href="service.html">Dịch vụ</a></li>
+                <li><a href="index.php?act=service">Dịch vụ</a></li>
                 <li><a href="#footer">Liên hệ</a></li>
             </ul>
         </nav>

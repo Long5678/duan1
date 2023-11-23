@@ -581,6 +581,31 @@
 
 /* END trang chủ and dịch vụ */ 
 
+/* thay đổi thông tin khách hàng */
+
+.form-edit-tk{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.twoform-tk{
+  width: 50%;
+}
+
+.twoform-tk input{
+  width: 80%;
+}
+
+.twoform-tk-lert{
+  width: 50%;
+  margin-left: 40px;
+}
+
+.twoform-tk-lert input{
+  width: 80%;
+}
+/* END thay đổi thông tin khách hàng */
+
 
 
 

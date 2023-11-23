@@ -20,7 +20,7 @@
             </div>
                 <nav class="menu-con">
                     <ul>
-                        <li class="tk_list" style="background-color: black;"><a class="nav1" style="margin-left: 0px;" href="dangnhap.html"><i class="fa-solid fa-user" style="margin-right: 5px; display: inline;"></i>truongvien1604200@gmail.com</a>
+                        <li class="tk_list" style="background-color: black;"><a class="nav1" style="margin-left: 0px;" href="dangnhap.html"><i class="fa-solid fa-user" style="margin-right: 5px; display: inline;"></i><?=$user?></a>
                             <ul>
                                 <li><a href="#">Tài khoản</a></li>
                                 <li><a href="#">Đơn hàng</a></li>
@@ -46,7 +46,7 @@
                 <li><a href="home.html">Trang Chủ</a></li>
                 <li><a href="#">Giới thiệu</a></li>
                 <li><a href="sanpham.html">Sản Phẩm</a></li>
-                <li><a href="service.html">Dịch vụ</a></li>
+                <li><a href="index.php?act=service">Dịch vụ</a></li>
                 <li><a href="#footer">Liên hệ</a></li>
             </ul>
         </nav>
