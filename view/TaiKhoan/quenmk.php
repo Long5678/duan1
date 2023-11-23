@@ -8,7 +8,11 @@
             
                 <div class="row mb30 mt30" style="margin-bottom: 150px;">
                     <input type="submit" name="submit" value="Đặt lại mật khẩu">
-                    <h2 class="thongbao" style= "color: rgb(13, 0, 255);">
+
+
+                </div>
+                <h2 class="thongbao" style= "color: rgb(13, 0, 255);">
+
                         <?php
                             if (isset($thongbao)&&($thongbao)!="") {
                                 echo $thongbao;
@@ -22,6 +26,9 @@
                             }
                         ?>
                         </h2>
+<<<<<<< HEAD
                 </div>
+=======
+>>>>>>> db81e1c908668cbc6dfd11b96ad6a221f35433d9
             </form>
         </div>

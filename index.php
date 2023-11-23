@@ -85,9 +85,9 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                 else{
                     $baoloi="Tài khoản không tồn tại. Vui lòng kiểm tra hoặc đăng ký !";
                 }
-            }
-                include './view/TaiKhoan/dangnhap.php';
-                break;
+
+                    include './view/TaiKhoan/dangnhap.php';
+                    break;
         case 'edit-taikhoan':
             if (isset($_POST['capnhat']) && !empty($_POST['capnhat'])) {
                 if (isset($_POST['user']) && !empty($_POST['user']) &&
