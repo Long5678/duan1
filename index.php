@@ -130,7 +130,7 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                 if($email == ''){
                     $baoloi = 'mời nhập thông tin !';
                 }
-                if (empty($baoloi)) {
+                if (check_email($email)) {
                     getUserEmail($email);
                     $code = "http://localhost/duan1/index.php?act=dat-lai-mk";
                     $title = "Quên mật khẩu";
