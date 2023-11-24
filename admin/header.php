@@ -14,5 +14,5 @@
         <a href="index.php?act=listkh">Khách Hàng</a>
         <a href="index.php?act=listdh">Đơn Hàng</a>
         <a href="index.php?act=listtk">Thống Kê</a>
-        <a href="#">Public</a>
+        <a href="index.php?act=public">Public</a>
     </div>

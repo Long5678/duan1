@@ -142,10 +142,10 @@
             $listtaikhoan=load_add_taikhoan();
             include 'taikhoan/list.php';
             break;
-            
-            default:
-            include "home.php";
+        case 'public':
+            header('location: ../index.php');  
             break;
+            
         }
     }else{
         include 'home.php';
