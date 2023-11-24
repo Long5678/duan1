@@ -15,8 +15,11 @@
         <div class="row header">
             <img  src="./view/image/logo2.png" alt=""  width="70px" height="70px">  
             <div class="boxsearch">
-                <input style="font-family: Roboto-ThinItalic;" type="search" placeholder="Tìm kiếm">
-                <button><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></button>
+                <form action="index.php?act=tksp" method="post">
+                <input style="font-family: Roboto-ThinItalic;" name="kyw" type="search" placeholder="Tìm kiếm">
+                <button type="submit"><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></button>
+                </form>
+                
             </div>
                 <nav class="menu-con">
                     <ul>

@@ -44,6 +44,22 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                   $tendm=load_ten_dm($iddm);
             include "./view/sanpham/dmsp.php";
             break;
+        case 'tksp':
+            if (isset($_POST['kyw']) && ($_POST['kyw']!="")) { 
+                $kyw=$_POST['kyw'];
+            }else {
+                      $kyw="";
+                }
+                  if (isset($_GET['iddm']) && ($_GET['iddm'] > 0)) { 
+                      $iddm =($_GET['iddm']); 
+                      
+                  } else {
+                      $iddm=0;
+                  }
+                      $dssp=loadall_sanpham($kyw,$iddm);
+                      $tendm=load_ten_dm($iddm);
+                include "./view/sanpham/tksp.php";
+                break;
         case 'sanphamct':
             if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) { 
                 $onesp = loadone_sanpham($_GET['idsp']);
