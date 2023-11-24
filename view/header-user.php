@@ -15,14 +15,17 @@
         <div class="row header">
             <img  src="./view/image/logo2.png" alt=""  width="70px" height="70px">  
             <div class="boxsearch">
-                <input style="font-family: Roboto-ThinItalic;" type="search" placeholder="Tìm kiếm">
-                <button><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></button>
+                <form action="index.php?act=tksp" method="post">
+                <input style="font-family: Roboto-ThinItalic;" name="kyw" type="search" placeholder="Tìm kiếm">
+                <button type="submit"><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></button>
+                </form>
+                
             </div>
                 <nav class="menu-con">
                     <ul>
                         <li class="tk_list" style="background-color: black;"><a class="nav1" style="margin-left: 0px;" href="dangnhap.html"><i class="fa-solid fa-user" style="margin-right: 5px; display: inline;"></i><?=$user?></a>
                             <ul>
-                                <li><a href="#">Tài khoản</a></li>
+                                <li><a href="index.php?act=edit-taikhoan">Tài khoản</a></li>
                                 <li><a href="#">Đơn hàng</a></li>
                                 <li><a href="index.php?act=thoat">Thoát</a></li>
                             </ul>

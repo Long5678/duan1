@@ -44,6 +44,22 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                   $tendm=load_ten_dm($iddm);
             include "./view/sanpham/dmsp.php";
             break;
+        case 'tksp':
+            if (isset($_POST['kyw']) && ($_POST['kyw']!="")) { 
+                $kyw=$_POST['kyw'];
+            }else {
+                      $kyw="";
+                }
+                  if (isset($_GET['iddm']) && ($_GET['iddm'] > 0)) { 
+                      $iddm =($_GET['iddm']); 
+                      
+                  } else {
+                      $iddm=0;
+                  }
+                      $dssp=loadall_sanpham($kyw,$iddm);
+                      $tendm=load_ten_dm($iddm);
+                include "./view/sanpham/tksp.php";
+                break;
         case 'sanphamct':
             if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) { 
                 $onesp = loadone_sanpham($_GET['idsp']);
@@ -85,6 +101,7 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                 else{
                     $baoloi="Tài khoản không tồn tại. Vui lòng kiểm tra hoặc đăng ký !";
                 }
+            }
 
                     include './view/TaiKhoan/dangnhap.php';
                     break;
@@ -134,19 +151,29 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                 if (check_email($email)) {
                     getUserEmail($email);
                     $code = "http://localhost/duan1/index.php?act=dat-lai-mk";
-                    $title = "Quên mật khẩu";
-                    $content = "<a href='".$code."'>Ấn vào đây để đặt lại mật khẩu</a>";
+                    $title = "POINT-Coffee";
+                    $content = '<div style="margin: 0 auto; width: 40%;">
+                        <p><h1 style="color: aliceblue; background: black; margin: 0px; padding: 15px;">Yêu cầu khôi phục mật khẩu</h1></p><pr>
+                        <div style="padding: 5px 15px; margin-top: -17px; border: 1px #9999 solid; color: black;">
+                            <p>Xin chào '.$email.'</p><pr>
+                            <p>Ai đó đã yêu cầu mật khẩu mới cho tài khoản sau trên POINT-Coffee.</p><pr>
+                            <p>Nếu bạn không tạo yêu cầu này, hãy bỏ qua email. Nếu bạn muốn thực hiện:</p><pr>
+                            <a href="'.$code.'">Ấn vào đây để đặt lại mật khẩu</a><pr>
+                            <p>Cảm ơn đã đọc !</p>
+                        </div>
+                    </div>';
                     $mail->sendMail($title,$content,$email);
-    
+
                     $_SESSION['email'] = $email;
                     $_SESSION['code'] = $code;
                     header('location: index.php?act=xac-nhan-email');
                 }else{
                     $baoloi = 'Email không tồn tại. mời đăng ký tài khoản !';
-            } 
-        }
+                } 
+            }
             include './view/TaiKhoan/quenmk.php';
             break;
+
 
         case 'dat-lai-mk':
             if (isset($_POST['luu']) && !empty($_POST['luu'])) {
