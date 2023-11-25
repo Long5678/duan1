@@ -52,12 +52,14 @@
     min-height: 230px;
     text-align: center;
 }
-.boxsp button{
+.boxsp input{
     background-color: rgb(15, 15, 15);
     color: white;
     margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 5px 35px;
 }
-.boxsp button:hover{
+.boxsp input:hover{
     background-color: rgb(83, 81, 81);   
 }
 .fromcontent-sp input[type='button']{
