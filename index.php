@@ -204,6 +204,12 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
         case 'xac-nhan-email':
             include './view/TaiKhoan/xac-nhan-email.php';
             break;
+        case 'giohang':
+            include './view/bill/giohang.php';
+            break;
+        case 'thanhtoan':
+            include './view/bill/thanhtoan.php';
+            break;
         case 'thoat':
             session_unset();
             header('location: index.php');  
