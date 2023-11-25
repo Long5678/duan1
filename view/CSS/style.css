@@ -449,6 +449,7 @@
     .menu-con {
       width: 25%;
       background: #ffff; /* Set background color for parent menu */
+      margin-right: -190px;
     }
     
     .menu-con ul {
@@ -481,7 +482,7 @@
       color: aliceblue;
     }
     .tk_list{
-      width: 100%;
+      width: 70%;
       position: relative;
     }
     
