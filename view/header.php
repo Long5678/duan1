@@ -29,7 +29,7 @@ $mail = new Mailer();
                 <ul class="boxr mr">
                     <li><a href="index.php?act=dangky">Đăng Ký</a></li>
                     <li><a href="index.php?act=dangnhap">Đăng Nhập</a></li>
-                    <li><a href="index.php?act=giohang"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="index.php?act=dangnhap" onclick="checkLogin();"><i class="fa-solid fa-cart-shopping"></i></a></li>
                 </ul>
         </div>
         </header>
@@ -57,4 +57,13 @@ $mail = new Mailer();
                 <li><a href="#footer">Liên hệ</a></li>
             </ul>
         </nav>
+
+        
+        <script>
+
+function checkLogin() {
+  alert("Vui lòng đăng nhập để đặt hàng!!")
+}
+        </script>
+
 
