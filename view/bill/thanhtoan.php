@@ -1,48 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/font.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Thanh toán</title>
-</head>
-<body>
-    <div class="boxcenter">
-        <header>
-            <div class="row header">
-                <img class="ml" src="../image/logo2.png" alt="" style="margin-bottom: 10px;" width="70px" height="70px">  
-                <div class="boxsearch">
-                    <input style="font-family: Roboto-ThinItalic;" type="search" placeholder="Tìm kiếm">
-                    <button><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></button>
-                </div>
-                    <ul class="boxr mr">
-                        <li><a href="dangky.html">Đăng Ký</a></li>
-                        <li><a href="dangnhap.html">Đăng Nhập</a></li>
-                        <li><a href="giohang.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                    </ul>
-            </div>
-            </header>
-            <nav>
-                <ul>
-                    <li style="background-color: black;"><a class="nav1" href=""><i class="fa-solid fa-bars" style="margin-right: 5px;"></i>Danh Mục Sản Phẩm</a>   
-                        <!-- menu con sổ xuống cấp 1 -->
-                        <ul>
-                            <li><a href="#">Cà Phê Hạt</a></li>
-                            <li><a href="#">Cà Phê Rang Xay</a></li>
-                            <li><a href="#">Cà Phê Hòa Tan</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="home.html">Trang Chủ</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="sanpham.html">Sản Phẩm</a></li>
-                    <li><a href="service.html">Dịch vụ</a>
-                    </li>
-                    <li><a href="#footer">Liên hệ</a></li>
-                </ul>
-            </nav>
-    <div class="boxconten">
+<div class="boxconten">
+<form action="index.php?act=thanhtoan">
         <div class="all-show">
             <div class="formtk fromtaikhoan">
                 <h1 style="font-size: 17px;margin-bottom: 25px;">Thông tin khách hàng</h1>
@@ -89,7 +46,7 @@
                     <tr>
                         <td>
                             <div class="img-cart">
-                            <img src="../image/sp chinh.jpg" alt="">
+                            <img src="./view/image/sp chinh.jpg" alt="">
                             </div>
                         </td>
                         <td>
@@ -143,34 +100,5 @@
                 </div>
             </div>
         </div>
+    </form>
     </div>
-    <footer>
-        <div id="footer" class="footer">
-            <div class="logo-footer ml40">
-                <img src="../image/logo.avif" alt="" width="150px">
-            </div>
-            <div class="conten-footer">
-                <div class="text-menu ml30">
-                    <a href=""><h3>Trang Chủ</h3></a>
-                    <a href=""><h3>Giới Thiệu</h3></a>
-                    <a href=""><h3>Sản Phẩm</h3></a>
-                    <a href=""><h3>Liên Hệ</h3></a>
-                    <a href=""><h3>Dịch Vụ</h3></a>
-                </div>
-                <div class="tex-bank">
-                    <h3>Thanh toán</h3>
-                    <img src="../image/footer1.png" alt="" width="300px">
-                    <h3>Theo giỏi chúng tôi trên</h3>
-                    <img src="../image/footer2.png" alt="" width="130px">
-                </div>
-                <div class="tex-dc">
-                    <h3>Địa chỉ</h3>
-                    <p style="font-family: Roboto-LightItalic;">116 Nguyễn Huy Tưởng</p>
-                    <p style="font-family: Roboto-LightItalic;">Email: DUAN1@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    </div>
-</body>
-</html>

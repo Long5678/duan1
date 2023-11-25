@@ -116,6 +116,10 @@
                                     $tensp= $_POST['tensp'];
                                     $giasp= $_POST['giasp'];
                                     $mota= $_POST['mota'];
+                                    $nsx= $_POST['nsx'];
+                                    $dd= $_POST['dd'];
+                                    $HSD= $_POST['HSD'];
+                                    $kl= $_POST['kl'];
                                     $hinh = $_FILES['hinh']['name'];
                                     $target_dir = "../upload/";
                                     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
@@ -124,7 +128,7 @@
                                       } else {
                                        // echo "Sorry, there was an error uploading your file.";
                                       }
-                                      update_sanpham($id, $iddm, $tensp, $giasp, $mota, $hinh);
+                                      update_sanpham($id, $iddm, $tensp, $giasp, $mota, $hinh, $nsx, $dd, $HSD, $kl);
                                     $thongbao = "Cập nhật thành công";
                                 }
                          

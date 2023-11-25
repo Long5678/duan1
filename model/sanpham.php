@@ -64,11 +64,11 @@ function load_sanpham_cungloai($id, $iddm) {
     return $listsanpham;
 }
 
-function update_sanpham($id, $iddm, $tensp, $giasp, $mota, $hinh) {
+function update_sanpham($id, $iddm, $tensp, $giasp, $mota, $hinh, $nsx, $dd, $HSD, $kl) {
     if ($hinh!="") {
-        $sql = "update product set category_id = '". $iddm . "', name ='". $tensp . "', price = '". $giasp . "', description = '" . $mota . "', img = '" . $hinh . "' WHERE id = " . $id;
+        $sql = "update product set category_id = '". $iddm . "', name ='". $tensp . "', price = '". $giasp . "', description = '" . $mota . "', img = '" . $hinh . "', NSX ='".$nsx."', dacdiem = '".$dd."', hsd = '".$HSD."', khoiluong = '".$kl."'  WHERE id = " . $id;
     } else {
-        $sql = "update product set category_id = '". $iddm . "', name = '". $tensp . "', price = '" . $giasp . "', description = '" . $mota . "' WHERE id = " . $id;
+        $sql = "update product set category_id = '". $iddm . "', name = '". $tensp . "', price = '" . $giasp . "', description = '" . $mota . "', NSX ='".$nsx."', dacdiem = '".$dd."', hsd = '".$HSD."', khoiluong = '".$kl."' WHERE id = " . $id;
     }
     pdo_execute($sql);
 }

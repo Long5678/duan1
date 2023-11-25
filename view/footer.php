@@ -29,5 +29,6 @@
     </footer>
     </div>
     <script src="./view/JS/banner.js"></script>
+    <script src="./view/JS/giohang.js"></script>
 </body>
 </html>

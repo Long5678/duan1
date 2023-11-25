@@ -21,14 +21,10 @@
                                 <h2>'. $name . '</h2>
                                 <p style="color: red; font-size: 25px;">'.$price.' VNĐ</p>
                                 <p style="color: black; font-size: 22px; font-family: "Roboto-Regular" ;">'.$description.'</p>
-                            <div class="soluong">
-                            <input type="button" style="width: 30%; font-family: Roboto-Regular;"value="-">
-                            <input type="text" style="width: 40%; text-align: center;" name="" id="" value="1">
-                            <input type="button" style="width: 30%; font-family: Roboto-Regular;"value="+">
-                            </div>
-                            <div class="fromcontent">
-                            <a href="giohang.html"><input type="button" value="Thêm vào giỏ hàng"></a>
-                            <a href="thanhtoan.html"><input style="background-color:red;" type="button" value="Đặt hàng"></a>
+                            <td><a style="padding: 5px 8px 5px 8px; border: 1px #9999 solid; text-align: center; cursor: pointer; font-family: Roboto-Regular;" onclick="giamCT(this)"> - </a> <span type="text" style="border: 1px #9999 solid; padding: 5px 14px 5px 14px; text-align: center;">1</span> <a style="padding: 5px 8px 5px 8px; border: 1px #9999 solid; margin: -5px; text-align: center; cursor: pointer; font-family: Roboto-Regular;" onclick="tangCT(this)"> + </a></td>
+                            <div class="fromcontent" style="margin-top: 20px;">
+                            <a href="index.php?act=giohang"><input type="button" value="Thêm vào giỏ hàng"></a>
+                            <a href="index.php?act=thanhtoan"><input style="background-color:red;" type="button" value="Đặt hàng"></a>
                             </div>
                             </div>
                         </div>';
@@ -86,7 +82,7 @@
                                     <div class="img"><a href="'.$linksp.'"><img src="./upload/'.$img.'" alt="" style="width: 200px; height: 200px;"></a></div>
                                     <a style="font-family: Roboto-Regular;" href="'.$linksp.'">'.$name.'</a>
                                     <p>'.$price.' VNĐ</p>
-                                    <a href="giohang.html"><input type="button" value="Thêm vào giỏ hàng"></a>
+                                    <a href="index.php?act=giohang"><input type="button" value="Thêm vào giỏ hàng"></a>
                                 </div>';
                         }
                     ?>
@@ -119,5 +115,6 @@
             </div>
         </div>
 </body>
+<script src="./view/JS/giohang.js"></script>
 </html>
        

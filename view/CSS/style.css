@@ -567,10 +567,17 @@
   width: 300px;
   height: 260px;
   border: 1px solid #ccc;
+  overflow: hidden;
 }
 
 .children-box .box1 .box-box1 img{
     margin-top: 5px;
+    margin-top: 5px;
+    -webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.children-box .box1 .box-box1:hover img{
+  width: 280px;
 }
 
 .mb-50 {
