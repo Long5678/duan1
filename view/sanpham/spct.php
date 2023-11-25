@@ -27,8 +27,8 @@
                             <input type="button" style="width: 30%; font-family: Roboto-Regular;"value="+">
                             </div>
                             <div class="fromcontent">
-                            <a href="giohang.html"><input type="button" value="Thêm vào giỏ hàng"></a>
-                            <a href="thanhtoan.html"><input style="background-color:red;" type="button" value="Đặt hàng"></a>
+                            <a href="index.php?act=giohang"><input type="button" value="Thêm vào giỏ hàng"></a>
+                            <a href="index.php?act=thanhtoan"><input style="background-color:red;" type="button" value="Đặt hàng"></a>
                             </div>
                             </div>
                         </div>';
@@ -86,7 +86,7 @@
                                     <div class="img"><a href="'.$linksp.'"><img src="./upload/'.$img.'" alt="" style="width: 200px; height: 200px;"></a></div>
                                     <a style="font-family: Roboto-Regular;" href="'.$linksp.'">'.$name.'</a>
                                     <p>'.$price.' VNĐ</p>
-                                    <a href="giohang.html"><input type="button" value="Thêm vào giỏ hàng"></a>
+                                    <a href="index.php?act=giohang"><input type="button" value="Thêm vào giỏ hàng"></a>
                                 </div>';
                         }
                     ?>
