@@ -7,6 +7,9 @@ include './model/sanpham.php';
 include './model/danhmuc.php';
 include './mail/index.php';
 include 'global.php';
+
+if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
+
 $dsdm=loadall_danhmuc();
 if (isset($_SESSION['user'])&&(is_array($_SESSION['user']))) {
     extract($_SESSION['user']);
@@ -20,6 +23,7 @@ include './view/header.php';
 $spnew=loadall_sanpham_home();
 $dstop10=loadall_sanpham_top10();
 $dsdiscount=loadall_sanpham_discount();
+$load_one=loadall_sanpham_one($id);
 
 if (isset($_GET['act'])&&($_GET['act']!="")) {
     $act=$_GET['act'];
@@ -204,6 +208,44 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
         case 'xac-nhan-email':
             include './view/TaiKhoan/xac-nhan-email.php';
             break;
+            case 'addtocart':
+                // Kiểm tra xem người dùng đã đăng nhập chưa
+                if (isset($_SESSION['user'])) {
+                    if (isset($_GET['id']) && !empty($_GET['id'])) {
+                        $id = $_GET['id'];  
+                        $product = loadall_sanpham_one($id);
+                        $name = $product['name'];
+                        $img = $product['img'];
+                        $price = $product['price'];
+                        $soluong = 1;
+                        $ttien = $soluong * $price;
+                        $spadd = [$id, $name, $img, $price, $soluong, $ttien];
+                        if (!isset($_SESSION['mycart'])) {
+                            $_SESSION['mycart'] = [];
+                        } 
+                        array_push($_SESSION['mycart'], $spadd);
+                    }
+                } else {
+                    echo "<script type='text/javascript'>alert('Vui lòng đăng nhập để vào giỏ hàng');</script>"; 
+                }
+                include "view/cart/viewcart.php";
+                break;
+                case 'delcart':
+                    if(isset($_GET['id'])) {
+                        $id = $_GET['id'];
+                        foreach ($_SESSION['mycart'] as $key => $product) {
+                            if ($product[0] == $id) {
+                                unset($_SESSION['mycart'][$key]);
+                                $_SESSION['mycart'] = array_values($_SESSION['mycart']);
+                                break;
+                            }
+                        }
+                    } else {
+                        $_SESSION['mycart'] = [];
+                    }
+                    header('Location: index.php?act=addtocart');
+                    break;
+                    
         case 'giohang':
             include './view/bill/giohang.php';
             break;
