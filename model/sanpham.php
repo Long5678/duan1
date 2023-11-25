@@ -47,6 +47,26 @@ function loadone_sanpham($id) {
     return $sp;
 }
 
+function loadall_sanpham_one($id) {
+    // Assuming you have a PDO connection established
+    $pdo = new PDO("mysql:host=localhost:3307;dbname=duan1", "root", "");
+    
+    // Prepare the SQL statement using a placeholder
+    $sql = "SELECT * FROM product WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+
+    // Bind the parameter
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    
+    // Execute the query
+    $stmt->execute();
+    
+    // Fetch the result
+    $product = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    return $product;
+}
+
 function load_ten_dm($iddm) {
     if($iddm>0){
     $sql = "select * from category where id =".$iddm;
