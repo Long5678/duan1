@@ -16,7 +16,7 @@
                     extract($onesp);
                     $img = $img_path . $img;
                     echo '<div class="product">
-                            <img src="' . $img . '" alt="">
+                            <img style="width: 600px; height: 600px;" src="' . $img . '" alt="">
                             <div class="product-detail">
                                 <h2>'. $name . '</h2>
                                 <p style="color: red; font-size: 25px;">'.$price.' VNĐ</p>
