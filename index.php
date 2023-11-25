@@ -223,13 +223,27 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                         if (!isset($_SESSION['mycart'])) {
                             $_SESSION['mycart'] = [];
                         } 
-                        array_push($_SESSION['mycart'], $spadd);
+                        // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+                        $found = false;
+                        for ($i = 0; $i < count($_SESSION['mycart']); $i++) {
+                            if ($_SESSION['mycart'][$i][0] == $id) {
+                                // Nếu sản phẩm đã có trong giỏ hàng, tăng số lượng lên 1
+                                $_SESSION['mycart'][$i][4]++;
+                                $found = true;
+                                break;
+                            }
+                        }
+                        // Nếu sản phẩm chưa có trong giỏ hàng, thêm vào giỏ hàng
+                        if (!$found) {
+                            array_push($_SESSION['mycart'], $spadd);
+                        }
                     }
                 } else {
                     echo "<script type='text/javascript'>alert('Vui lòng đăng nhập để vào giỏ hàng');</script>"; 
                 }
                 include "view/cart/viewcart.php";
                 break;
+            
                 case 'delcart':
                     if(isset($_GET['id'])) {
                         $id = $_GET['id'];
