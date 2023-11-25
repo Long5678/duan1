@@ -33,7 +33,7 @@
 
                     </ul>
                 </nav>
-                <a href="index.php?act=giohang"><i class="fa-solid fa-cart-shopping" style="color: black;"></i></a>
+                <a href="index.php?act=addtocart&id"><i class="fa-solid fa-cart-shopping" style="color: black;"></i></a>
         </div>
         </header>
         <nav>
