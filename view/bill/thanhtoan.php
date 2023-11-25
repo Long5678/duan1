@@ -1,5 +1,5 @@
+
 <div class="boxconten">
-<form action="index.php?act=thanhtoan">
         <div class="all-show">
             <div class="formtk fromtaikhoan">
                 <h1 style="font-size: 17px;margin-bottom: 25px;">Thông tin khách hàng</h1>
@@ -14,7 +14,11 @@
                             <input type="tel" name="" id=""><br>
                         </div>
                         <div class="row mb30">
-                            Địa chỉ<br><br>
+                            Tỉnh/Thành phố<br><br>
+                            <input type="text" name="" id="">  
+                        </div>
+                        <div class="row mb30">
+                            Xã/Phường<br><br>
                             <input type="text" name="" id=""><br>
                         </div>
                     </div>
@@ -24,7 +28,11 @@
                             <input type="email" name="" id=""><br>
                         </div>
                         <div class="row mb30">
-                            Địa chỉ khác<br><br>
+                            Quận/Huyện<br><br>
+                            <input type="text" name="" id="">  
+                        </div>
+                        <div class="row mb30">
+                            Địa chỉ<br><br>
                             <input type="text" name="" id=""><br>
                         </div>
                     </div>
@@ -46,7 +54,7 @@
                     <tr>
                         <td>
                             <div class="img-cart">
-                            <img src="./view/image/sp chinh.jpg" alt="">
+                            <img src="image/sp chinh.jpg" alt="">
                             </div>
                         </td>
                         <td>
@@ -100,5 +108,34 @@
                 </div>
             </div>
         </div>
-    </form>
     </div>
+    <footer>
+        <div id="footer" class="footer">
+            <div class="logo-footer ml40">
+                <img src="image/logo.avif" alt="" width="150px">
+            </div>
+            <div class="conten-footer">
+                <div class="text-menu ml30">
+                    <a href=""><h3>Trang Chủ</h3></a>
+                    <a href=""><h3>Giới Thiệu</h3></a>
+                    <a href=""><h3>Sản Phẩm</h3></a>
+                    <a href=""><h3>Liên Hệ</h3></a>
+                    <a href=""><h3>Dịch Vụ</h3></a>
+                </div>
+                <div class="tex-bank">
+                    <h3>Thanh toán</h3>
+                    <img src="image/footer1.png" alt="" width="300px">
+                    <h3>Theo giỏi chúng tôi trên</h3>
+                    <img src="image/footer2.png" alt="" width="130px">
+                </div>
+                <div class="tex-dc">
+                    <h3>Địa chỉ</h3>
+                    <p style="font-family: Roboto-LightItalic;">116 Nguyễn Huy Tưởng</p>
+                    <p style="font-family: Roboto-LightItalic;">Email: DUAN1@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+</body>
+</html>
