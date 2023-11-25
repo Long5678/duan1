@@ -42,7 +42,22 @@ $hinhpath = "../upload/".$img;
                        Mô tả<br>
                    <textarea name="mota" cols="30" rows="10"><?= $mota ?? '' ?></textarea>
                     </div>
-
+                    <div class="input-group">
+                        <label for="product-name">Nhà Sản Xuất</label>
+                        <input type="text" id="product-name" name="nsx" value="<?=$NSX?>">
+                    </div>
+                    <div class="input-group">
+                        <label for="product-name">Đặc điểm</label>
+                        <input type="text" id="product-name" name="dd" value="<?=$dacdiem?>">
+                    </div>
+                    <div class="input-group">
+                        <label for="product-name">Hạn Sử Dụng</label>
+                        <input type="text" id="product-name" name="HSD" value="<?=$hsd?>">
+                    </div>
+                    <div class="input-group">
+                        <label for="product-name">Khối Lượng</label>
+                        <input type="text" id="product-name" name="kl" value="<?=$khoiluong?>">
+                    </div>
                     <div class="input-group">
                         <input type="hidden" name="id" value="<?=$id?>">
                         <input type="submit" name="capnhat" value="Cập nhật">
