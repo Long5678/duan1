@@ -73,5 +73,4 @@ function update_sanpham($id, $iddm, $tensp, $giasp, $mota, $hinh, $nsx, $dd, $HS
     pdo_execute($sql);
 }
 
-
 ?>

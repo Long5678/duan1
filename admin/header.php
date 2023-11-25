@@ -13,6 +13,5 @@
         <a href="index.php?act=addsp">Hàng Hóa</a>
         <a href="index.php?act=listkh">Khách Hàng</a>
         <a href="index.php?act=listdh">Đơn Hàng</a>
-        <a href="index.php?act=listtk">Thống Kê</a>
-        <a href="index.php?act=public">Public</a>
+        <a href="../index.php">Public</a>
     </div>
