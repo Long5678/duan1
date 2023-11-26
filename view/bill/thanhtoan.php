@@ -17,12 +17,8 @@
                             <input type="tel" name="phone" id="" value="<?php echo isset($phone) ? $phone : ''; ?>"><br>
                         </div>
                         <div class="row mb30">
-                            Tỉnh/Thành phố<br><br>
-                            <input type="text" name="" id="">  
-                        </div>
-                        <div class="row mb30">
-                            Xã/Phường<br><br>
-                            <input type="text" name="" id=""><br>
+                            Địa chỉ<br><br>
+                            <input type="text" name="address" id="" value="<?php echo isset($address) ? $address : ''; ?>">
                         </div>
                     </div>
                     <div class="twoform">
@@ -31,11 +27,7 @@
                             <input type="email" name="email" id="" value="<?php echo isset($email) ? $email : ''; ?>">
                         </div>
                         <div class="row mb30">
-                            Quận/Huyện<br><br>
-                            <input type="text" name="" id="">  
-                        </div>
-                        <div class="row mb30">
-                            Địa chỉ<br><br>
+                            Địa chỉ khác<br><br>
                             <input type="text" name="address" id="" value="<?php echo isset($address) ? $address : ''; ?>">
                         </div>
                     </div>
@@ -60,7 +52,7 @@
             foreach ($_SESSION['mycart'] as $cart) {
                 $product_id = $cart[0]; // ID của sản phẩm
                 $name = $cart[1]; // Tên sản phẩm
-                $img = $cart[2]; // Hình ảnh sản phẩm
+                $hinh = $img_path . $cart[2]; // Hình ảnh sản phẩm
                 $price = $cart[3]; // Giá sản phẩm
                 $quantity = $cart[4]; // Số lượng sản phẩm
                 $subtotal = $price * $quantity; // Tổng tiền cho sản phẩm này
@@ -69,7 +61,7 @@
                 <tr>
                     <td>
                         <div class="img-cart">
-                            <img src="' . $img . '" alt="">
+                            <img src="' . $hinh . '" alt="">
                         </div>
                     </td>
                     <td>
@@ -139,33 +131,6 @@
         </div>
         </form>
     </div>
-    <footer>
-        <div id="footer" class="footer">
-            <div class="logo-footer ml40">
-                <img src="image/logo.avif" alt="" width="150px">
-            </div>
-            <div class="conten-footer">
-                <div class="text-menu ml30">
-                    <a href=""><h3>Trang Chủ</h3></a>
-                    <a href=""><h3>Giới Thiệu</h3></a>
-                    <a href=""><h3>Sản Phẩm</h3></a>
-                    <a href=""><h3>Liên Hệ</h3></a>
-                    <a href=""><h3>Dịch Vụ</h3></a>
-                </div>
-                <div class="tex-bank">
-                    <h3>Thanh toán</h3>
-                    <img src="image/footer1.png" alt="" width="300px">
-                    <h3>Theo giỏi chúng tôi trên</h3>
-                    <img src="image/footer2.png" alt="" width="130px">
-                </div>
-                <div class="tex-dc">
-                    <h3>Địa chỉ</h3>
-                    <p style="font-family: Roboto-LightItalic;">116 Nguyễn Huy Tưởng</p>
-                    <p style="font-family: Roboto-LightItalic;">Email: DUAN1@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    </div>
+</div>
 </body>
 </html>

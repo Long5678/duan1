@@ -49,7 +49,7 @@ function loadone_sanpham($id) {
 
 function loadall_sanpham_one($id) {
     // Assuming you have a PDO connection established
-    $pdo = new PDO("mysql:host=localhost:3307;dbname=duan1", "root", "");
+    $pdo = new PDO("mysql:host=localhost:3308;dbname=duan1", "root", "");
     
     // Prepare the SQL statement using a placeholder
     $sql = "SELECT * FROM product WHERE id = :id";

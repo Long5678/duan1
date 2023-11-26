@@ -310,7 +310,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case 'donhang':
             $users = load_add_taikhoan();
-            $pdo = new PDO('mysql:host=localhost:3307;dbname=duan1', 'root', '');
+            $pdo = new PDO('mysql:host=localhost:3308;dbname=duan1', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             if (isset($_POST['ttdh']) && isset($_SESSION['mycart']) && count($_SESSION['mycart']) > 0) {
@@ -354,19 +354,17 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
         case 'vieworder':
            // Case 'vieworder'
-$order_id = $_GET['id']; // Lấy giá trị order_id từ tham số truyền qua URL
+            $order_id = $_GET['id']; // Lấy giá trị order_id từ tham số truyền qua URL
 
-// Kiểm tra xem $order_id có giá trị hay không trước khi sử dụng nó
-if (!empty($order_id)) {
-    $orderDetails = get_order_details($order_id);
-    include './view/cart/vieworder.php';
-} else {
-    // Xử lý khi $order_id không có giá trị hợp lệ
-    echo "Không tìm thấy đơn hàng.";
-}
+            // Kiểm tra xem $order_id có giá trị hay không trước khi sử dụng nó
+            if (!empty($order_id)) {
+                $orderDetails = get_order_details($order_id);
+                include './view/cart/vieworder.php';
+            } else {
+                // Xử lý khi $order_id không có giá trị hợp lệ
+                echo "Không tìm thấy đơn hàng.";
+            }
             break;
-
-
 
         case 'thoat':
             session_unset();
