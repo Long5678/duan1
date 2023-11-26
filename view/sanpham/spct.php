@@ -23,7 +23,7 @@
                                 <p style="color: black; font-size: 22px; font-family: "Roboto-Regular" ;">'.$description.'</p>
                             <td><a style="padding: 5px 8px 5px 8px; border: 1px #9999 solid; text-align: center; cursor: pointer; font-family: Roboto-Regular;" onclick="giamCT(this)"> - </a> <span type="text" style="border: 1px #9999 solid; padding: 5px 14px 5px 14px; text-align: center;">1</span> <a style="padding: 5px 8px 5px 8px; border: 1px #9999 solid; margin: -5px; text-align: center; cursor: pointer; font-family: Roboto-Regular;" onclick="tangCT(this)"> + </a></td>
                             <div class="fromcontent" style="margin-top: 20px;">
-                            <a href="index.php?act=giohang"><input type="button" value="Thêm vào giỏ hàng"></a>
+                            <a href="index.php?act=addtocart&id='.$id.'"><input type="button" value="Thêm vào giỏ hàng"></a>
                             <a href="index.php?act=thanhtoan"><input style="background-color:red;" type="button" value="Đặt hàng"></a>
                             </div>
                             </div>

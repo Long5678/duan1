@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/banner.css">
+    <link rel="stylesheet" href="CSS/font.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Trang chủ</title>
+</head>
+<body>
+    <div class="boxcenter">
+        <header>
+        <div class="row header">
+            <img  src="image/logo2.png" alt=""  width="70px" height="70px">  
+            <div class="boxsearch">
+                <input style="font-family: Roboto-ThinItalic;" type="search" placeholder="Tìm kiếm">
+                <button><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></button>
+            </div>
+                <nav class="menu-con">
+                    <ul>
+                        <li class="tk_list" style="background-color: black;"><a class="nav1" style="margin-left: 0px;" href="dangnhap.html"><i class="fa-solid fa-user" style="margin-right: 5px; display: inline;"></i>Văn Viên</a>
+                            <ul>
+                                <li><a href="#">Tài khoản</a></li>
+                                <li><a href="thanhtoan.html">Đơn hàng</a></li>
+                                <li><a href="#">Thoát</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+                <a href="giohang.html"><i class="fa-solid fa-cart-shopping" style="color: black;"></i></a>
+        </div>
+        </header>
+        <nav>
+            <ul>
+                <li style="background-color: black;"><a class="nav1" href=""><i class="fa-solid fa-bars" style="margin-right: 5px;"></i>Danh Mục Sản Phẩm</a>
+                    <!-- menu con sổ xuống cấp 1 -->
+                    <ul>
+                        <li><a href="sanpham.html">Cà Phê Hạt</a></li>
+                        <li><a href="#">Cà Phê Rang Xay</a></li>
+                        <li><a href="#">Cà Phê Hòa Tan</a></li>
+                    </ul>
+                </li>
+                <li><a href="home.html">Trang Chủ</a></li>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="sanpham.html">Sản Phẩm</a></li>
+                <li><a href="service.html">Dịch vụ</a></li>
+                <li><a href="#footer">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="form-edit-tk fromtaikhoan">
+<h1 style="font-size: 17px;margin-bottom: 25px; margin-top: 30px;">Thông tin khách hàng</h1>
+<div class="row mb30">
+    Họ và tên<br><br>
+    <input style="width: 100%;" type="text" name="user" value="Trương Văn Viên">  
+</div>
+<div class="twoform-all">
+    <div class="twoform-tk">
+        <div class="row mb30">
+            Số điện thoại<br><br>
+            <input style="width: 100%;" type="text" name="phone" value="0866194597"><br>
+        </div>
+        <div class="row mb30">
+            Địa chỉ<br><br>
+            <input style="width: 100%;" type="text" name="address" value="65 Nguyễn chánh , TP.Đà nẵng"><br>
+        </div>
+    </div>
+    <div class="twoform-tk-lert">
+        <div class="row mb30">
+            Địa chỉ Email<br><br>
+            <input style="width: 100%;" type="email" name="email" value="truongvien16042004@gmail.com"><br>
+        </div>
+        <div class="row mb30">
+            Địa chỉ (khác)<br><br>
+            <input style="width: 100%;" type="text" name="address" value=""><br>
+        </div>
+    </div>
+</div>
+<h1 style="font-size: 17px;margin-bottom: 25px;">Thay đổi mật khẩu</h1>
+    <div class="twoform-all">
+        <div class="twoform-tk">
+            <div class="row mb30">
+                Mật khẩu hiện tại (Bỏ trống nếu không thay đổi)<br><br>
+                <input style="width: 100%;" type="password" name="pass" id=""><br>
+            </div>
+        </div>
+        <div class="twoform-tk-lert">
+            <div class="row mb30">
+                Mật khẩu mới (Bỏ trống nếu không thay đổi)<br><br>
+                <input style="width: 100%;" type="password" name="newpass" id=""><br>
+            </div>
+        </div>
+    </div>
+    <div class="row mb30 mt30">
+        <input type="submit" name="capnhat" value="Lưu thông tin">
+    </div>
+</div>
+    <footer>
+        <div id="footer" class="footer">
+            <div class="logo-footer ml40">
+                <img src="image/logo.avif" alt="" width="150px">
+            </div>
+            <div class="conten-footer">
+                <div class="text-menu ml30">
+                    <a href=""><h3>Trang Chủ</h3></a>
+                    <a href=""><h3>Giới Thiệu</h3></a>
+                    <a href=""><h3>Sản Phẩm</h3></a>
+                    <a href=""><h3>Liên Hệ</h3></a>
+                    <a href=""><h3>Dịch Vụ</h3></a>
+                </div>
+                <div class="tex-bank">
+                    <h3>Thanh toán</h3>
+                    <img src="image/footer1.png" alt="" width="300px">
+                    <h3>Theo giỏi chúng tôi trên</h3>
+                    <img src="image/footer2.png" alt="" width="130px">
+                </div>
+                <div class="tex-dc">
+                    <h3>Địa chỉ</h3>
+                    <p style="font-family: Roboto-LightItalic;">116 Nguyễn Huy Tưởng</p>
+                    <p style="font-family: Roboto-LightItalic;">Email: DUAN1@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+    <script src="JS/banner.js"></script>
+</body>
+</html>

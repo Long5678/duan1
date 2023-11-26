@@ -8,7 +8,6 @@ if(!isset($_SESSION['mycart'])) {
     
 }
 ?>
-
 <div class="boxconten">
     <div class="all-show">
         <div class="show">
@@ -64,8 +63,6 @@ if (isset($_SESSION['mycart'])) {
     }
 }
 ?>
-
-
                 <!-- <tr>
                         <td>
                             <a href=""><i class="fa-solid fa-trash-can"></i></a>
@@ -105,7 +102,7 @@ if (isset($_SESSION['mycart'])) {
                 <tr>
                     <td>Tạm tính</td>
                     <?php 
-                    echo ' <td>'.$tong.'</td>'
+                    echo ' <td>'.$tong.' VND</td>'
                    
                     ?>
                 </tr>
@@ -117,7 +114,7 @@ if (isset($_SESSION['mycart'])) {
                 <tr>
                     <td>Tổng</td>
                     <td style="color: red;"> <?php 
-                    echo ' '.$tong.''
+                    echo ' '.$tong.' VND'
                     ?></td>
                 </tr>
             </table>
