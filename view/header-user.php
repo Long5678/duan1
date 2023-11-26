@@ -26,7 +26,7 @@
                         <li class="tk_list" style="background-color: black;"><a class="nav1" style="margin-left: 0px;" href="dangnhap.html"><i class="fa-solid fa-user" style="margin-right: 5px; display: inline;"></i><?=$user?></a>
                             <ul>
                                 <li><a href="index.php?act=edit-taikhoan">Tài khoản</a></li>
-                                <li><a href="#">Đơn hàng</a></li>
+                                <li><a href="index.php?act=vieworder">Đơn hàng</a></li>
                                 <li><a href="index.php?act=thoat">Thoát</a></li>
                             </ul>
                         </li>

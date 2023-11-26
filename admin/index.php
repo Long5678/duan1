@@ -4,6 +4,7 @@
     include '../model/danhmuc.php';
     include '../model/sanpham.php';
     include '../model/taikhoan.php';
+    include '../model/thanhtoan.php';
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
@@ -146,6 +147,11 @@
             $listtaikhoan=load_add_taikhoan();
             include 'taikhoan/list.php';
             break;
+
+            case 'listdh':
+                $list_order=load_order();
+                include 'donhang/list.php';
+                break;
         case 'public':
             header('location: ../index.php');  
             break;

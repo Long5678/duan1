@@ -1,17 +1,20 @@
 
 <div class="boxconten">
+<form action="index.php?act=donhang" method="post">
         <div class="all-show">
+        
             <div class="formtk fromtaikhoan">
+           
                 <h1 style="font-size: 17px;margin-bottom: 25px;">Thông tin khách hàng</h1>
                 <div class="row mb30">
                     Họ và tên<br><br>
-                    <input style="width: 95%;" type="text" name="" id="">  
+                    <input style="width: 95%;" type="text" name="user" id="" value="<?php echo isset($user) ? $user : ''; ?>"> 
                 </div>
                 <div class="twoform-all">
                     <div class="twoform mr10">
                         <div class="row mb30">
                             Số điện thoại<br><br>
-                            <input type="tel" name="" id=""><br>
+                            <input type="tel" name="phone" id="" value="<?php echo isset($phone) ? $phone : ''; ?>"><br>
                         </div>
                         <div class="row mb30">
                             Tỉnh/Thành phố<br><br>
@@ -25,7 +28,7 @@
                     <div class="twoform">
                         <div class="row mb30">
                             Địa chỉ Email<br><br>
-                            <input type="email" name="" id=""><br>
+                            <input type="email" name="email" id="" value="<?php echo isset($email) ? $email : ''; ?>">
                         </div>
                         <div class="row mb30">
                             Quận/Huyện<br><br>
@@ -33,7 +36,7 @@
                         </div>
                         <div class="row mb30">
                             Địa chỉ<br><br>
-                            <input type="text" name="" id=""><br>
+                            <input type="text" name="address" id="" value="<?php echo isset($address) ? $address : ''; ?>">
                         </div>
                     </div>
                 </div>
@@ -51,7 +54,33 @@
                         <th></th>
                         <th>Tạm tính</th>
                     </tr>
-                    <tr>
+                    <?php
+        $total = 0;
+        if (isset($_SESSION['mycart'])) {
+            foreach ($_SESSION['mycart'] as $cart) {
+                $product_id = $cart[0]; // ID của sản phẩm
+                $name = $cart[1]; // Tên sản phẩm
+                $img = $cart[2]; // Hình ảnh sản phẩm
+                $price = $cart[3]; // Giá sản phẩm
+                $quantity = $cart[4]; // Số lượng sản phẩm
+                $subtotal = $price * $quantity; // Tổng tiền cho sản phẩm này
+                $total += $subtotal; // Tổng tiền cho tất cả sản phẩm
+                echo '
+                <tr>
+                    <td>
+                        <div class="img-cart">
+                            <img src="' . $img . '" alt="">
+                        </div>
+                    </td>
+                    <td>
+                        <p style="font-family: Roboto-Regular;">' . $name . '</p>
+                    </td>
+                    <td>' . $subtotal . ' VND</td>
+                </tr>';
+            }
+        }
+        ?>
+                    <!-- <tr>
                         <td>
                             <div class="img-cart">
                             <img src="image/sp chinh.jpg" alt="">
@@ -61,7 +90,7 @@
                             <p style="font-family: Roboto-Regular;">Cà Phê G7 3in1 – Bịch 50 Sachets</p>
                         </td>
                         <td>150.000VND</td>
-                    </tr>
+                    </tr> -->
                     <!-- <tr>
                         <td>
                             <div class="img-cart">
@@ -76,7 +105,7 @@
                     <tr>
                         <td>Tạm tính</td>
                         <td></td>
-                        <td>150.000 VND</td>
+                        <td><?php echo $total; ?> VND</td>
                     </tr>
                     <tr>
                         <td>Giao hàng</td>
@@ -86,7 +115,7 @@
                     <tr>
                         <td>Tổng</td>
                         <td></td>
-                        <td style="color: red;">150.000VND</td>
+                        <td style="color: red;"><?php echo $total; ?> VND</td>
                     </tr>
                 </table>
                 <div class="pttt-all">
@@ -108,6 +137,7 @@
                 </div>
             </div>
         </div>
+        </form>
     </div>
     <footer>
         <div id="footer" class="footer">
