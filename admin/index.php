@@ -152,6 +152,13 @@
                 $list_order=load_order();
                 include 'donhang/list.php';
                 break;
+            case 'xoadh':
+                if (isset($_GET["id"])&&($_GET["id"]>0)) {
+                    delete_dh($_GET["id"]);
+                }
+                $list_order=load_order();
+                include 'donhang/list.php';
+                break;
         case 'public':
             header('location: ../index.php');  
             break;

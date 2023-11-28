@@ -13,6 +13,7 @@
                             <th>Mật khẩu</th>
                             <th>Email</th>
                             <th>Địa chỉ</th>
+                            <th>Địa chỉ khác</th>
                             <th>Điện thoại</th>
                             <th>Vai trò</th>
                             <th>Thao tác</th>
@@ -30,9 +31,10 @@
                                 <td>'.$pass.'</td>
                                 <td>'.$email.'</td>
                                 <td>'.$address.'</td>
+                                <td>'.$address_other.'</td>
                                 <td>'.$phone.'</td>
                                 <td>'.$role.'</td>
-                                <td> <a href="'.$xoatk.'"><input type="button" value="Xóa"></a></td>
+                                <td> <a href="'.$xoatk.'"><input type="button" value="Xóa" ></a></td>
                             </tr>';
                             }
                         ?>

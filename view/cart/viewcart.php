@@ -37,7 +37,7 @@ if (isset($_SESSION['mycart'])) {
             echo '
 <tr>
     <td>
-        <a href="index.php?act=delcart&id=' . $product_id . '"><i class="fa-solid fa-trash-can"></i></a>
+        <a href="index.php?act=delcart&id=' . $product_id . '" style="color: rgb(214, 9, 9);"><i class="fa-solid fa-trash-can"></i></a>
     </td>
     <td>
         <div class="img-cart">
@@ -48,7 +48,7 @@ if (isset($_SESSION['mycart'])) {
         <p style="font-family: Roboto-Regular;">' . $name . '</p>
     </td>
     <td>
-        <p>' . $price . ' VND</p>
+        <p>' . number_format($price, 0, ".", ".") . ' VND</p>
     </td>
     <td>
     <a style="padding: 5px 8px 5px 8px; border: 1px #9999 solid; text-align: center; cursor: pointer; font-family: Roboto-Regular;" onclick="giam(this)"> - </a> 
@@ -56,7 +56,7 @@ if (isset($_SESSION['mycart'])) {
     <a style="padding: 5px 8px 5px 8px; border: 1px #9999 solid; margin: -5px; text-align: center; cursor: pointer; font-family: Roboto-Regular;" onclick="tang(this)"> + </a>
     </td>
     <td>
-        <p>' . $ttien . ' VND</p>
+        <p>' . number_format($ttien, 0, ".", ".") . ' VND</p>
     </td>
 </tr>';
         }
@@ -102,7 +102,7 @@ if (isset($_SESSION['mycart'])) {
                 <tr>
                     <td>Tạm tính</td>
                     <?php 
-                    echo ' <td>'.$tong.' VND</td>'
+                    echo ' <td>'.number_format($tong, 0, ".", ".").' VND</td>'
                    
                     ?>
                 </tr>
@@ -114,7 +114,7 @@ if (isset($_SESSION['mycart'])) {
                 <tr>
                     <td>Tổng</td>
                     <td style="color: red;"> <?php 
-                    echo ' '.$tong.' VND'
+                    echo ' '.number_format($tong, 0, ".", ".").' VND'
                     ?></td>
                 </tr>
             </table>
