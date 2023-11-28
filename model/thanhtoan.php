@@ -21,7 +21,10 @@ function load_order(){
     return $listorder;
 }
 
-
+function delete_dh($id){
+    $sql = "DELETE FROM `order` WHERE id=".$id;
+    pdo_execute($sql);
+}
 
 
 ?>

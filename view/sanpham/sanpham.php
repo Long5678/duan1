@@ -64,7 +64,7 @@
                                 <div class="boxsp fromcontent-sp">
                                 <div class="img"><a href="'.$linksp.'"><img src="'.$hinh.'" alt="" style="width: 200px; height: 200px;"></a></div>
                                 <a style="font-family: Roboto-Regular;" href="'.$linksp.'">'.$name.'</a>
-                                <p>'.$price.'VNĐ</p>
+                                <p>'.number_format($price, 0, ".", ".").'VNĐ</p>
                                 <a href="index.php?act=addtocart&id='.$id.'"> <input type="submit" value="Thêm vào giỏ hàng"> </a>
                                 </div>';
                                 $i += 1;

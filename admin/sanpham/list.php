@@ -42,7 +42,7 @@
                         <td>'.$id.'</td>
                         <td>'.$name.'</td>
                         <td>'.$hinh.'</td>
-                        <td>'.$price.'</td>
+                        <td>'.number_format($price, 0, ".", ".").' VND</td>
                         <td>
                         <a href="'.$suasp.'"><input type="button" value="Sửa" style="width: 60px; background-color: #ffc107;"></a>
                         <a href="'.$xoasp.'"><input type="button" value="Xóa" style="width: 60px; background-color: #dc3545; color: white;"></a> 

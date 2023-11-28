@@ -28,7 +28,7 @@
                     </div>
                     <div class="row mb30">
                         Địa chỉ (khác)<br><br>
-                        <input style="width: 100%;" type="text" name="address" value="<?=$address?>"><br>
+                        <input style="width: 100%;" type="text" name="address_other" value="<?=$address_other?>"><br>
                     </div>
                 </div>
             </div>
