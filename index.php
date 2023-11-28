@@ -294,7 +294,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
 
             }
-
             // Lưu trữ thông tin đơn hàng
             $order = [
                 'user' => $user,
@@ -310,7 +309,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case 'donhang':
             $users = load_add_taikhoan();
-            $pdo = new PDO('mysql:host=localhost:3308;dbname=duan1', 'root', '');
+            $pdo = new PDO('mysql:host=localhost:3307;dbname=duan1', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             if (isset($_POST['ttdh']) && isset($_SESSION['mycart']) && count($_SESSION['mycart']) > 0) {
