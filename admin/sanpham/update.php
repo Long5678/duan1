@@ -31,7 +31,7 @@ $hinhpath = "../upload/".$img;
                     </div>
                     <div class="input-group"> 
                        Giá sản phẩm<br>
-                    <input type="text" name="giasp" value="<?=$price?>">
+                    <input type="text" name="giasp" value="<?=number_format($price, 0, ".", ".")?>">
                     </div>
                     <div class="input-group"> 
                        Hình<br>

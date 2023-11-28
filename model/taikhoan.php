@@ -22,9 +22,9 @@ function check_email($email){
     return $sp;
 }
 
-function update_taikhoan($id,$user,$newpass,$email,$address,$phone){
+function update_taikhoan($id,$user,$newpass,$email,$address,$address_other,$phone){
 
-    $sql = "UPDATE customer SET user='".$user."',pass='".$newpass."',email='".$email."',address='".$address."',phone='".$phone."' WHERE id=".$id;
+    $sql = "UPDATE customer SET user='".$user."',pass='".$newpass."',email='".$email."',address='".$address."',address_other='".$address_other."',phone='".$phone."' WHERE id=".$id;
     pdo_execute($sql);
 }
 
@@ -34,9 +34,9 @@ function update_mk($email,$newpass){
     pdo_execute($sql);
 }
 
-function update_thongtin($id,$user,$email,$address,$phone){
+function update_thongtin($id,$user,$email,$address,$address_other,$phone){
 
-    $sql = "UPDATE customer SET user='".$user."',email='".$email."',address='".$address."',phone='".$phone."' WHERE id=".$id;
+    $sql = "UPDATE customer SET user='".$user."',email='".$email."',address='".$address."',address_other='".$address_other."',phone='".$phone."' WHERE id=".$id;
     pdo_execute($sql);
 }
 

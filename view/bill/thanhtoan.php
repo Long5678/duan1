@@ -4,7 +4,11 @@
         <div class="all-show">
         
             <div class="formtk fromtaikhoan">
-           
+            <?php
+                            if (isset($_SESSION['user'])&&(is_array($_SESSION['user']))) {
+                                extract($_SESSION['user']);
+                            }
+                        ?>
                 <h1 style="font-size: 17px;margin-bottom: 25px;">Thông tin khách hàng</h1>
                 <div class="row mb30">
                     Họ và tên<br><br>
@@ -28,7 +32,7 @@
                         </div>
                         <div class="row mb30">
                             Địa chỉ khác<br><br>
-                            <input type="text" name="address" id="" value="<?php echo isset($address) ? $address : ''; ?>">
+                            <input type="text" name="address_other" id="" value="<?php echo isset($address) ? $address : ''; ?>">
                         </div>
                     </div>
                 </div>
@@ -37,6 +41,20 @@
                     Ghi chú<br><br>
                     <input style="padding-bottom: 70px; width: 95%;" type="text" name="" id="">  
                 </div>
+                <h2 class="thongbao" style= "color: rgb(13, 0, 255);">
+                        <?php
+                            if (isset($thongbao)&&($thongbao)!="") {
+                                echo $thongbao;
+                            }
+                        ?>
+                        </h2>
+            <h2 class="baoloi" style= "color: red;">
+                        <?php
+                            if (isset($baoloi)&&($baoloi)!="") {
+                                echo $baoloi;
+                            }
+                        ?>
+                        </h2>
             </div>
             <div class="bill fromcontent ml30">
                 <table>
@@ -67,7 +85,7 @@
                     <td>
                         <p style="font-family: Roboto-Regular;">' . $name . '</p>
                     </td>
-                    <td>' . $subtotal . ' VND</td>
+                    <td>' . number_format($subtotal,0,".",".") . ' VND</td>
                 </tr>';
             }
         }
@@ -97,7 +115,7 @@
                     <tr>
                         <td>Tạm tính</td>
                         <td></td>
-                        <td><?php echo $total; ?> VND</td>
+                        <td><?php echo number_format($total,0,".","."); ?> VND</td>
                     </tr>
                     <tr>
                         <td>Giao hàng</td>
@@ -107,7 +125,7 @@
                     <tr>
                         <td>Tổng</td>
                         <td></td>
-                        <td style="color: red;"><?php echo $total; ?> VND</td>
+                        <td style="color: red;"><?php echo number_format($total,0,".","."); ?> VND</td>
                     </tr>
                 </table>
                 <div class="pttt-all">
@@ -121,7 +139,7 @@
                         <input type="radio" name="" id="">Thanh toán qua Zalo
                     </div>
                     <div style="display: flex; align-items: center;" class="row mt30">
-                        <input type="checkbox" name="" id=""> <p style="font-family: Roboto-Regular;">Tôi đồng ý với điều khoản của website</p>
+                        <input type="checkbox" name="checkbox" id=""> <p style="font-family: Roboto-Regular;">Tôi đồng ý với điều khoản của website</p>
                     </div>
                 </div>
                 <div class="row mb10 mt30 click-cart">

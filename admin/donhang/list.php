@@ -12,6 +12,7 @@
                             <th>Người Đặt</th>
                             <th>Email</th>
                             <th>Địa chỉ</th>
+                            <th>Địa chỉ khác</th>
                             <th>Điện thoại</th>
                             <th>Tổng Tiền </th>
                             <th>Thao tác</th>
@@ -20,7 +21,7 @@
                             foreach ($list_order as $taikhoan) {
                                 extract($taikhoan);
                                 $suatk='index.php?act=suatk&id='.$id;
-                                $xoatk='index.php?act=xoatk&id='.$id;
+                                $xoatk='index.php?act=xoadh&id='.$id;
 
                                 echo '<tr>
                                 <td><input type="checkbox" name="" id=""></td>
@@ -28,8 +29,9 @@
                                 <td>'.$user.'</td>
                                 <td>'.$email.'</td>
                                 <td>'.$address.'</td>
+                                <td>'.$address_other.'</td>
                                 <td>'.$phone.'</td>
-                                <td>'.$total	.'</td>
+                                <td>'.number_format($total, 0, ".", ".").' VND</td>
                                 <td> <a href="'.$xoatk.'"><input type="button" value="Xóa"></a></td>
                             </tr>';
                             }
