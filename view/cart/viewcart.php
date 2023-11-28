@@ -125,3 +125,4 @@ if (isset($_SESSION['mycart'])) {
         </div>
     </div>
 </div>
+
