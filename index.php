@@ -332,7 +332,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
 
             }
-
             // Lưu trữ thông tin đơn hàng
             $order = [
                 'user' => $user,
