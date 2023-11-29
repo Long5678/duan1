@@ -341,9 +341,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             ];
             $_SESSION['order'] = $order;
 
-
+        
             include './view/bill/thanhtoan.php';
             break;
+
 
             case 'donhang':
                 $users = load_add_taikhoan();
@@ -397,6 +398,79 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             
 
         
+
+
+    
+        case 'donhang':            
+              $users = load_add_taikhoan();
+              $pdo = new PDO('mysql:host=localhost:3308;dbname=duan1', 'root', '');
+              $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+              if (isset($_POST['ttdh']) && isset($_SESSION['mycart']) && count($_SESSION['mycart']) > 0) {
+                $user = $_POST['user'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $address_other = $_POST['address_other'];
+                $phone = $_POST['phone'];
+                $status = 'suscess';
+                $cart = $_SESSION['mycart'];
+                $total = 0;
+            
+                foreach ($cart as $item) {
+                  $price = $item[3];
+                  $quantity = $item[4];
+                  $subtotal = $price * $quantity;
+                  $total += $subtotal;
+                }
+                // kiểm tra có đặt sdt và địa chỉ chưa
+                if (empty($phone) || empty($address)) {
+                    echo "<script type='text/javascript'>alert('Bạn cần nhập số điện thoại và địa chỉ để đặt hàng.');</script>";
+                  }else{
+
+                    if (empty($_POST['radio'])) {
+                    // Thông báo lỗi
+                    echo "<script type='text/javascript'>alert('Bạn cần chọn hình thức thanh toán để đặt hàng.');</script>";
+                    }else{
+            
+                // Kiểm tra xem checkbox đã được chọn hay chưa
+                if (isset($_POST['checkbox'])) {
+            
+                  // Nếu checkbox đã được chọn thì thực hiện đặt hàng
+                  $stmt = $pdo->prepare("INSERT INTO `order` (user, email, address, address_other, phone, total, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                  $stmt->execute([$user, $email, $address,$address_other, $phone, $total, $status]);
+            
+                  $order_id = $pdo->lastInsertId();
+            
+                  foreach ($cart as $item) {
+                    $product_id = $item[0];
+                    $name = $item[1];
+                    $price = $item[3];
+                    $quantity = $item[4];
+            
+                    $stmt = $pdo->prepare("INSERT INTO order_details (order_id, product_id, product_name, price, quantity) VALUES (?, ?, ?, ?, ?)");
+                    $stmt->execute([$order_id, $product_id, $name, $price, $quantity]);
+                  }
+            
+                  unset($_SESSION['mycart']);
+            
+                  // Thông báo đặt hàng thành công
+                  echo "<script type='text/javascript'>alert('Đặt hàng thành công.');</script>";
+            
+                  // Redirect về trang danh sách sản phẩm
+                  header('Location: index.php?act=sanpham');
+                } else {
+            
+                  // Nếu checkbox chưa được chọn thì thông báo lỗi
+                  echo "<script type='text/javascript'>alert('Bạn phải đồng ý với điều khoản của website trước khi đặt hàng.');</script>";
+                }
+            }
+            }
+              } else {
+                echo "<script type='text/javascript'>alert('Giỏ hàng của bạn đang trống. Vui lòng thêm một số sản phẩm trước khi đặt hàng.');</script>";
+              }
+              include './view/bill/thanhtoan.php';
+              break;
+            
 
 
         case 'vieworder':

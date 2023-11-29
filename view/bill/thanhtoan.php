@@ -130,16 +130,17 @@
                 </table>
                 <div class="pttt-all">
                     <div class="pttt row mb10">
-                        <input type="radio" name="" id="">Nhận hàng khi thanh toán
+                        <input type="radio" name="radio" id="">Nhận hàng khi thanh toán
                     </div>
                     <div class="pttt row mb10">
-                        <input type="radio" name="" id="">Thanh toán qua online
+                        <input type="radio" name="radio" id="">Thanh toán qua online
                     </div>
                     <div class="pttt row mb10">
-                        <input type="radio" name="" id="">Thanh toán qua Zalo
+                        <input type="radio" name="radio" id="">Thanh toán qua Zalo
                     </div>
                     <div style="display: flex; align-items: center;" class="row mt30">
-                        <input type="checkbox" name="checkbox" id=""> <p style="font-family: Roboto-Regular;">Tôi đồng ý với điều khoản của website</p>
+                        <input type="checkbox" name="checkbox" id=""> 
+                        <p style="font-family: Roboto-Regular;">Tôi đồng ý với điều khoản của website</p>
                     </div>
                 </div>
                 <div class="row mb10 mt30 click-cart">
