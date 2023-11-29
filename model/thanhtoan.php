@@ -26,7 +26,7 @@ function load_orderdetail($order_id){
     $listorders =pdo_query($sql, $order_id);
     return $listorders;
 }
-
+//chưa làm được 
 function load_user_orders($user_id) {
     $sql = "SELECT cart.* FROM cart
             JOIN `order` ON cart.order_id = `order`.id
