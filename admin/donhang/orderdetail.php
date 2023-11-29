@@ -11,6 +11,7 @@
                         <th>Mã Sản Phẩm</th>
                         <th>Tên Sản Phẩm</th>
                         <th>Ảnh</th>
+                        <th>Số Lượng</th>
                         <th>Giá </th>
                     </tr>
                     <?php
@@ -30,6 +31,7 @@
                             <td>'.$id.'</td>
                             <td>'.$name.'</td>
                             <td>'.$hinh.'</td>
+                            <td>'.$quantity.'</td>
                             <td>'.number_format($price, 0, ".", ".").' VND</td>
                             </tr>';
                         }
