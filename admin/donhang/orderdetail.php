@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row fromtitle">
-        <h1> Đơn Hàng Của Bạn</h1>
+        <h1>Chi tiết Đơn Hàng</h1>
     </div>
     <div class="row fromcontent">
-        <form action="">
+        <form action="" method="POST">
             <div class="row mb10 mt20 formdsloai">
                 <table>
                     <tr>
@@ -11,6 +11,7 @@
                         <th>Mã Sản Phẩm</th>
                         <th>Tên Sản Phẩm</th>
                         <th>Ảnh</th>
+                        <th>Số Lượng</th>
                         <th>Giá </th>
                     </tr>
                     <?php
@@ -30,6 +31,7 @@
                             <td>'.$id.'</td>
                             <td>'.$name.'</td>
                             <td>'.$hinh.'</td>
+                            <td>'.$quantity.'</td>
                             <td>'.number_format($price, 0, ".", ".").' VND</td>
                             </tr>';
                         }
@@ -42,4 +44,3 @@
         </form>
     </div>
 </div>
-

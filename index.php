@@ -6,6 +6,7 @@ include './model/taikhoan.php';
 include './model/sanpham.php';
 include './model/danhmuc.php';
 include './model/thanhtoan.php';
+include './model/cart.php';
 include './mail/index.php';
 include 'global.php';
 
@@ -139,13 +140,13 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                         if ($pass !== $_SESSION['user']['pass']) {
                             $baoloi = "Mật khẩu hiện tại sai";
                         } else {
-                            update_taikhoan($id, $user, $newpass, $email, $address, $address_other,$phone);
+                            update_taikhoan($id, $user, $newpass, $email, $address, $address_other, $phone);
                             $_SESSION['user'] = check_usernew($user, $newpass);
                             header('location: index.php?act=edit-taikhoan');
                             $thongbao = "Cập nhật thành công";
                         }
                     } else {
-                        update_thongtin($id, $user, $email, $address, $address_other,$phone);
+                        update_thongtin($id, $user, $email, $address, $address_other, $phone);
                         header('location: index.php?act=edit-taikhoan');
                         $thongbao = "Cập nhật thành công";
                     }
@@ -257,42 +258,44 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/cart/viewcart.php";
             break;
 
-            case 'thanhtoan':
-                // Kiểm tra xem người dùng đã đăng nhập chưa
-                if (isset($_SESSION['user'])) {
-                    if (isset($_GET['id']) && !empty($_GET['id'])) {
-                        $id = $_GET['id'];
-                        $product = loadall_sanpham_one($id);
-                        $name = $product['name'];
-                        $img = $product['img'];
-                        $price = $product['price'];
-                        $soluong = 1;
-                        $ttien = $soluong * $price;
-                        $spadd = [$id, $name, $img, $price, $soluong, $ttien];
-                        if (!isset($_SESSION['mycart'])) {
-                            $_SESSION['mycart'] = [];
-                        }
-                        // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
-                        $found = false;
-                        for ($i = 0; $i < count($_SESSION['mycart']); $i++) {
-                            if ($_SESSION['mycart'][$i][0] == $id) {
-                                // Nếu sản phẩm đã có trong giỏ hàng, tăng số lượng lên 1
-                                $_SESSION['mycart'][$i][4]++;
-                                $found = true;
-                                break;
-                            }
-                        }
-                        // Nếu sản phẩm chưa có trong giỏ hàng, thêm vào giỏ hàng
-                        if (!$found) {
-                            array_push($_SESSION['mycart'], $spadd);
+
+
+        case 'thanhtoan':
+            // Kiểm tra xem người dùng đã đăng nhập chưa
+            if (isset($_SESSION['user'])) {
+                if (isset($_GET['id']) && !empty($_GET['id'])) {
+                    $id = $_GET['id'];
+                    $product = loadall_sanpham_one($id);
+                    $name = $product['name'];
+                    $img = $product['img'];
+                    $price = $product['price'];
+                    $soluong = 1;
+                    $ttien = $soluong * $price;
+                    $spadd = [$id, $name, $img, $price, $soluong, $ttien];
+                    if (!isset($_SESSION['mycart'])) {
+                        $_SESSION['mycart'] = [];
+                    }
+                    // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+                    $found = false;
+                    for ($i = 0; $i < count($_SESSION['mycart']); $i++) {
+                        if ($_SESSION['mycart'][$i][0] == $id) {
+                            // Nếu sản phẩm đã có trong giỏ hàng, tăng số lượng lên 1
+                            $_SESSION['mycart'][$i][4]++;
+                            $found = true;
+                            break;
                         }
                     }
-                } else {
-                    echo "<script type='text/javascript'>alert('Vui lòng đăng nhập để vào giỏ hàng');</script>";
-                    include './view/TaiKhoan/dangnhap.php';
+                    // Nếu sản phẩm chưa có trong giỏ hàng, thêm vào giỏ hàng
+                    if (!$found) {
+                        array_push($_SESSION['mycart'], $spadd);
+                    }
                 }
-                include "view/bill/thanhtoan.php";
-                break;
+            } else {
+                echo "<script type='text/javascript'>alert('Vui lòng đăng nhập để vào giỏ hàng');</script>";
+                include './view/TaiKhoan/dangnhap.php';
+            }
+            include "view/bill/thanhtoan.php";
+            break;
 
         case 'delcart':
             if (isset($_GET['id'])) {
@@ -329,8 +332,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $address = $_POST['address'];
                 $phone = $_POST['phone'];
                 $id = $_POST['id'];
-
-
             }
             // Lưu trữ thông tin đơn hàng
             $order = [
@@ -345,9 +346,66 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             include './view/bill/thanhtoan.php';
             break;
+
+
         case 'donhang':
             $users = load_add_taikhoan();
             $pdo = new PDO('mysql:host=localhost:3307;dbname=duan1', 'root', '');
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            if (isset($_POST['ttdh']) && isset($_SESSION['mycart']) && count($_SESSION['mycart']) > 0) {
+                $user = $_POST['user'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $address_other = $_POST['address_other'];
+                $phone = $_POST['phone'];
+                $status = 'suscess';
+                $cart = $_SESSION['mycart'];
+                $order_dates = date('Y-m-d H:i:s'); // Ngày đặt hàng
+                $total = 0;
+
+                foreach ($cart as $item) {
+                    $price = $item[3];
+                    $quantity = $item[4];
+                    $subtotal = $price * $quantity;
+                    $total += $subtotal;
+                }
+
+                $stmt = $pdo->prepare("INSERT INTO `order` (user, order_dates, email, address, address_other,phone, total, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->execute([$user, $order_dates, $email, $address, $address_other, $phone, $total, $status]);
+
+                $order_id = $pdo->lastInsertId();
+
+                foreach ($cart as $item) {
+                    $product_id = $item[0];
+                    $name = $item[1];
+                    $img = $item[2];
+                    $price = $item[3];
+                    $quantity = $item[4];
+
+                    $stmt = $pdo->prepare("INSERT INTO order_details (order_id, product_id, product_name, price, quantity) VALUES (?, ?, ?, ?, ?)");
+                    $stmt->execute([$order_id, $product_id, $name, $price, $quantity]);
+
+                    // Gọi hàm insert_cart
+                    insert_cart($order_id, $name, $price, $img, $quantity);
+                }
+                unset($_SESSION['mycart']);
+            } else {
+                echo "<script type='text/javascript'>alert('Giỏ hàng của bạn đang trống. Vui lòng thêm một số sản phẩm trước khi đặt hàng.');</script>";
+            }
+            header('Location: index.php?act=addtocart');
+            break;
+
+
+
+
+
+
+
+
+        case 'donhang':
+            $users = load_add_taikhoan();
+            $pdo = new PDO('mysql:host=localhost:3308;dbname=duan1', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             if (isset($_POST['ttdh']) && isset($_SESSION['mycart']) && count($_SESSION['mycart']) > 0) {
@@ -366,40 +424,68 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $subtotal = $price * $quantity;
                     $total += $subtotal;
                 }
+                // kiểm tra có đặt sdt và địa chỉ chưa
+                if (empty($phone) || empty($address)) {
+                    echo "<script type='text/javascript'>alert('Bạn cần nhập số điện thoại và địa chỉ để đặt hàng.');</script>";
+                } else {
 
-                $stmt = $pdo->prepare("INSERT INTO `order` (user, email, address, address_other, phone, total, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                $stmt->execute([$user, $email, $address,$address_other, $phone, $total, $status]);
+                    if (empty($_POST['radio'])) {
+                        // Thông báo lỗi
+                        echo "<script type='text/javascript'>alert('Bạn cần chọn hình thức thanh toán để đặt hàng.');</script>";
+                    } else {
 
-                $order_id = $pdo->lastInsertId();
+                        // Kiểm tra xem checkbox đã được chọn hay chưa
+                        if (isset($_POST['checkbox'])) {
 
-                foreach ($cart as $item) {
-                    $product_id = $item[0];
-                    $name = $item[1];
-                    $price = $item[3];
-                    $quantity = $item[4];
+                            // Nếu checkbox đã được chọn thì thực hiện đặt hàng
+                            $stmt = $pdo->prepare("INSERT INTO `order` (user, email, address, address_other, phone, total, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                            $stmt->execute([$user, $email, $address, $address_other, $phone, $total, $status]);
 
-                    $stmt = $pdo->prepare("INSERT INTO order_details (order_id, product_id, product_name, price, quantity) VALUES (?, ?, ?, ?, ?)");
-                    $stmt->execute([$order_id, $product_id, $name, $price, $quantity]);
+                            $order_id = $pdo->lastInsertId();
+
+                            foreach ($cart as $item) {
+                                $product_id = $item[0];
+                                $name = $item[1];
+                                $price = $item[3];
+                                $quantity = $item[4];
+
+                                $stmt = $pdo->prepare("INSERT INTO order_details (order_id, product_id, product_name, price, quantity) VALUES (?, ?, ?, ?, ?)");
+                                $stmt->execute([$order_id, $product_id, $name, $price, $quantity]);
+                            }
+
+                            unset($_SESSION['mycart']);
+
+                            // Thông báo đặt hàng thành công
+                            echo "<script type='text/javascript'>alert('Đặt hàng thành công.');</script>";
+
+                            // Redirect về trang danh sách sản phẩm
+                            header('Location: index.php?act=sanpham');
+                        } else {
+
+                            // Nếu checkbox chưa được chọn thì thông báo lỗi
+                            echo "<script type='text/javascript'>alert('Bạn phải đồng ý với điều khoản của website trước khi đặt hàng.');</script>";
+                        }
+                    }
                 }
-                unset($_SESSION['mycart']);
             } else {
                 echo "<script type='text/javascript'>alert('Giỏ hàng của bạn đang trống. Vui lòng thêm một số sản phẩm trước khi đặt hàng.');</script>";
             }
-            header('Location: index.php?act=addtocart');
+            include './view/bill/thanhtoan.php';
             break;
 
 
-        case 'vieworder':
-           // Case 'vieworder'
-            $order_id = $_GET['id']; // Lấy giá trị order_id từ tham số truyền qua URL
 
-            // Kiểm tra xem $order_id có giá trị hay không trước khi sử dụng nó
-            if (!empty($order_id)) {
-                $orderDetails = get_order_details($order_id);
-                include './view/cart/vieworder.php';
+        case 'vieworder':
+            if (isset($_GET['order_id'])) {
+                $order_id = $_GET['order_id'];
+                $list_order_detail = load_orderdetail($order_id);
+                if ($list_order_detail && count($list_order_detail) > 0) {
+                    include './view/cart/vieworder.php';
+                } else {
+                    echo 'Không có sản phẩm nào trong đơn hàng này.';
+                }
             } else {
-                // Xử lý khi $order_id không có giá trị hợp lệ
-                echo "Không tìm thấy đơn hàng.";
+                echo 'Không có mã đơn hàng được cung cấp.';
             }
             break;
 
