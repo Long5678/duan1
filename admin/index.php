@@ -5,6 +5,7 @@
     include '../model/sanpham.php';
     include '../model/taikhoan.php';
     include '../model/thanhtoan.php';
+    include '../model/cart.php';
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
@@ -152,6 +153,22 @@
                 $list_order=load_order();
                 include 'donhang/list.php';
                 break;
+            case 'orderdetail':
+                    if (isset($_GET['order_id'])) {
+                        $order_id = $_GET['order_id'];
+                        $list_order_detail = load_orderdetail($order_id);
+                        if ($list_order_detail && count($list_order_detail) > 0) {
+                            include 'donhang/orderdetail.php';
+                        } else {
+                            echo 'Không có sản phẩm nào trong đơn hàng này.';
+                        }
+                    } else {
+                        echo 'Không có mã đơn hàng được cung cấp.';
+                    }
+                    break;
+                
+                
+                
             case 'xoadh':
                 if (isset($_GET["id"])&&($_GET["id"]>0)) {
                     delete_dh($_GET["id"]);
