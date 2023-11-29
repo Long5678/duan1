@@ -40,7 +40,7 @@ $hinhpath = "../upload/".$img;
                     </div>
                     <div class="input-group"> 
                        Mô tả<br>
-                   <textarea name="mota" cols="30" rows="10"><?= $mota ?? '' ?></textarea>
+                   <textarea name="mota" cols="30" rows="10"><?=$description?></textarea>
                     </div>
                     <div class="input-group">
                         <label for="product-name">Nhà Sản Xuất</label>
