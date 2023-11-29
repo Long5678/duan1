@@ -21,10 +21,28 @@ function load_order(){
     return $listorder;
 }
 
+function load_orderdetail($order_id){
+    $sql = "SELECT * FROM cart WHERE order_id = ?";
+    $listorders =pdo_query($sql, $order_id);
+    return $listorders;
+}
+
+function load_user_orders($user_id) {
+    $sql = "SELECT cart.* FROM cart
+            JOIN `order` ON cart.order_id = `order`.id
+            WHERE `order`.user_id = ?";
+    $user_orders = pdo_query($sql, [$user_id]);
+    return $user_orders;
+}
+
+
+
 function delete_dh($id){
     $sql = "DELETE FROM `order` WHERE id=".$id;
     pdo_execute($sql);
 }
+
+
 
 
 ?>
