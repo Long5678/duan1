@@ -63,32 +63,7 @@ if (isset($_SESSION['mycart'])) {
     }
 }
 ?>
-                <!-- <tr>
-                        <td>
-                            <a href=""><i class="fa-solid fa-trash-can"></i></a>
-                        </td>
-                        <td>
-                            <div class="img-cart">
-                            <img src="image/sp chinh.jpg" alt="">
-                            </div>
-                        </td>
-                        <td>
-                            <p style="font-family: Roboto-Regular;">Cà Phê G7 3in1 – Bịch 50 Sachets</p>
-                        </td>
-                        <td>
-                            <p>150.000 VND</p>
-                        </td>
-                        <td>
-                            <div class="soluong">
-                                <input type="button" style="width: 30%;text-align: center; font-family: Roboto-Regular; "value="-">
-                                <input type="text" style="width: 40%; text-align: center;" name="" id="" value="2">
-                                <input type="button" style="width: 30%;text-align: center; font-family: Roboto-Regular; "value="+">
-                            </div>
-                        </td>
-                        <td>
-                            <p>150.000 VND</p>
-                        </td>
-                    </tr> -->
+            
 
             </table>
         </div>
@@ -125,4 +100,6 @@ if (isset($_SESSION['mycart'])) {
         </div>
     </div>
 </div>
+
+
 
