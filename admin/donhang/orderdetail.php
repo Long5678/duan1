@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row fromtitle">
-        <h1>Chi tiết</h1>
+        <h1>Chi tiết Đơn Hàng</h1>
     </div>
     <div class="row fromcontent">
         <form action="" method="POST">
