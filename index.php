@@ -6,6 +6,7 @@ include './model/taikhoan.php';
 include './model/sanpham.php';
 include './model/danhmuc.php';
 include './model/thanhtoan.php';
+include './model/cart.php';
 include './mail/index.php';
 include 'global.php';
 
@@ -329,8 +330,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $address = $_POST['address'];
                 $phone = $_POST['phone'];
                 $id = $_POST['id'];
-
-
             }
             // Lưu trữ thông tin đơn hàng
             $order = [
@@ -345,61 +344,72 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             include './view/bill/thanhtoan.php';
             break;
-        case 'donhang':
-            $users = load_add_taikhoan();
-            $pdo = new PDO('mysql:host=localhost:3307;dbname=duan1', 'root', '');
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            if (isset($_POST['ttdh']) && isset($_SESSION['mycart']) && count($_SESSION['mycart']) > 0) {
-                $user = $_POST['user'];
-                $email = $_POST['email'];
-                $address = $_POST['address'];
-                $address_other = $_POST['address_other'];
-                $phone = $_POST['phone'];
-                $status = 'suscess';
-                $cart = $_SESSION['mycart'];
-                $total = 0;
-
-                foreach ($cart as $item) {
-                    $price = $item[3];
-                    $quantity = $item[4];
-                    $subtotal = $price * $quantity;
-                    $total += $subtotal;
+            case 'donhang':
+                $users = load_add_taikhoan();
+                $pdo = new PDO('mysql:host=localhost:3307;dbname=duan1', 'root', '');
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+                if (isset($_POST['ttdh']) && isset($_SESSION['mycart']) && count($_SESSION['mycart']) > 0) {
+                    $user = $_POST['user'];
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $address_other = $_POST['address_other'];
+                    $phone = $_POST['phone'];
+                    $status = 'suscess';
+                    $cart = $_SESSION['mycart'];
+                    $order_dates = date('Y-m-d H:i:s'); // Ngày đặt hàng
+                    $total = 0;
+            
+                    foreach ($cart as $item) {
+                        $price = $item[3];
+                        $quantity = $item[4];
+                        $subtotal = $price * $quantity;
+                        $total += $subtotal;
+                    }
+            
+                    $stmt = $pdo->prepare("INSERT INTO `order` (user, order_dates, email, address, address_other,phone, total, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->execute([$user, $order_dates, $email, $address, $address_other, $phone, $total, $status]);
+            
+                    $order_id = $pdo->lastInsertId();
+            
+                    foreach ($cart as $item) {
+                        $product_id = $item[0];
+                        $name = $item[1];
+                        $img = $item[2];
+                        $price = $item[3];
+                        $quantity = $item[4];
+            
+                        $stmt = $pdo->prepare("INSERT INTO order_details (order_id, product_id, product_name, price, quantity) VALUES (?, ?, ?, ?, ?)");
+                        $stmt->execute([$order_id, $product_id, $name, $price, $quantity]);
+            
+                        // Gọi hàm insert_cart
+                        insert_cart($order_id, $name, $price, $img, $quantity);
+                    }
+                    unset($_SESSION['mycart']);
+                } else {
+                    echo "<script type='text/javascript'>alert('Giỏ hàng của bạn đang trống. Vui lòng thêm một số sản phẩm trước khi đặt hàng.');</script>";
                 }
+                header('Location: index.php?act=addtocart');
+                break;
+            
 
-                $stmt = $pdo->prepare("INSERT INTO `order` (user, email, address, address_other, phone, total, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                $stmt->execute([$user, $email, $address,$address_other, $phone, $total, $status]);
+            
 
-                $order_id = $pdo->lastInsertId();
-
-                foreach ($cart as $item) {
-                    $product_id = $item[0];
-                    $name = $item[1];
-                    $price = $item[3];
-                    $quantity = $item[4];
-
-                    $stmt = $pdo->prepare("INSERT INTO order_details (order_id, product_id, product_name, price, quantity) VALUES (?, ?, ?, ?, ?)");
-                    $stmt->execute([$order_id, $product_id, $name, $price, $quantity]);
-                }
-                unset($_SESSION['mycart']);
-            } else {
-                echo "<script type='text/javascript'>alert('Giỏ hàng của bạn đang trống. Vui lòng thêm một số sản phẩm trước khi đặt hàng.');</script>";
-            }
-            header('Location: index.php?act=addtocart');
-            break;
+        
 
 
         case 'vieworder':
-           // Case 'vieworder'
-            $order_id = $_GET['id']; // Lấy giá trị order_id từ tham số truyền qua URL
-
-            // Kiểm tra xem $order_id có giá trị hay không trước khi sử dụng nó
-            if (!empty($order_id)) {
-                $orderDetails = get_order_details($order_id);
-                include './view/cart/vieworder.php';
+            if (isset($_GET['order_id'])) {
+                $order_id = $_GET['order_id'];
+                $list_order_detail = load_orderdetail($order_id);
+                if ($list_order_detail && count($list_order_detail) > 0) {
+                    include './view/cart/vieworder.php';
+                } else {
+                    echo 'Không có sản phẩm nào trong đơn hàng này.';
+                }
             } else {
-                // Xử lý khi $order_id không có giá trị hợp lệ
-                echo "Không tìm thấy đơn hàng.";
+                echo 'Không có mã đơn hàng được cung cấp.';
             }
             break;
 
