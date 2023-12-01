@@ -11,7 +11,7 @@
                 <div class="twoform-tk-lert">
                     <div class="row mb30">
                         Nhập lại mật khẩu<br><br>
-                        <input style="width: 100%;" type="password" name="repeatpass" id=""><br>
+                        <input style="width: 100%;" type="repeatpass" name="repeatpass" id=""><br>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@
             </div>
             <div class="row mb30">
                 Nhập lại mật khẩu<br><br>
-                <input type="password" name="pass" id=""><br>
+                <input type="password" name="repeatpass" id=""><br>
             </div>
             <div class="row mb10" style="margin-bottom: 60px;">
                 <input type="submit" name="dangky" value="Đăng ký">

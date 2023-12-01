@@ -84,37 +84,53 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $email = $_POST['email'];
                     $user = $_POST['user'];
                     $pass = $_POST['pass'];
-                    insert_taikhoan($email, $user, $pass);
-                    $thongbao = "Đăng ký thành công !";
+                    $repeatpass = $_POST['repeatpass'];
+                    if ($pass == $repeatpass) {
+                        insert_taikhoan($email, $user, $pass);
+                        $thongbao = "Đăng ký thành công !";
+                    }else{
+                        $baoloi = "Mật khẩu nhập lại không khớp !";
+                    }
+                    
                 } else {
-                    $baoloi = "Mời nhập user hoặc pass !";
-                }
-                ;
-            }
-            ;
+                    $baoloi = "Mời nhập thông tin !";
+                };
+            };
             include './view/TaiKhoan/dangky.php';
             break;
         case 'dangnhap':
             if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
-                $user = $_POST['user'];
-                $pass = $_POST['pass'];
-                $checkuser = check_user($user, $pass);
-                if (is_array($checkuser)) {
-                    $_SESSION['user'] = $checkuser;
-                    header('location: index.php');
-                    // session user tồn tại thì mới có role => role mới thực thi được !
-                }
-                if (isset($_SESSION['user'])) {
-                    extract($_SESSION['user']);
-                    if (is_array($checkuser) && $role == 1) {
+                if ($_POST['user'] && $_POST['pass'] != "") {
+                    $user = $_POST['user'];
+                    $pass = $_POST['pass'];
+                        
+                    $checkuser = check_user($user, $pass);
+                    
+                    if (is_array($checkuser)) {
                         $_SESSION['user'] = $checkuser;
-                        header('location: admin/index.php');
+                        header('location: index.php');
+                        // session user tồn tại thì mới có role => role mới thực thi được !
+                    }else {
+                        $baoloi = "Tài khoản không tồn tại. Vui lòng kiểm tra hoặc đăng ký !";
                     }
-                } else {
-                    $baoloi = "Tài khoản không tồn tại. Vui lòng kiểm tra hoặc đăng ký !";
+                    if (isset($_SESSION['user'])) {
+                        extract($_SESSION['user']);
+                        if (is_array($checkuser) && $role == 1) {
+                            $_SESSION['user'] = $checkuser;
+                            header('location: admin/index.php');
+                        }
+                    } else {
+                        $baoloi = "Tài khoản không tồn tại. Vui lòng kiểm tra hoặc đăng ký !";
+                    }
+                    if (!empty($_POST["remember_me"])) {
+                         setcookie("user", $_POST["user"], time() + 86400);
+                        setcookie("pass", $_POST["pass"], time() + 86400);
+                    }
+                }else {
+                    $baoloi = "Mời nhập user hoặc pass !";
                 }
             }
-
+    
             include './view/TaiKhoan/dangnhap.php';
             break;
         case 'edit-taikhoan':
@@ -192,29 +208,27 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
         case 'dat-lai-mk':
             if (isset($_POST['luu']) && !empty($_POST['luu'])) {
-                if (
-                    isset($_POST['newpass']) && !empty($_POST['newpass']) &&
-                    isset($_POST['repeatpass']) && !empty($_POST['repeatpass'])
-                ) {
-
+                if (isset($_POST['newpass']) && !empty($_POST['newpass']) &&
+                    isset($_POST['repeatpass']) && !empty($_POST['repeatpass'])) {
+            
                     $newpass = $_POST['newpass'];
                     $repeatpass = $_POST['repeatpass'];
-
+            
                     // kiểm tra nếu tồn tại pass mới thì update
                     if ($newpass !== $repeatpass) {
                         $baoloi = "Mật khẩu nhập lại không khớp !";
                     } else {
+                        $user = $_SESSION['user'];
                         $email = $_SESSION['email'];
-                        update_mk($email, $newpass);
+                        update_mk($newpass,$email);
                         $_SESSION['user'] = check_usernew($user, $newpass);
-                        header('location: index.php?act=dat-lai-mk');
                         $thongbao = "Cập nhật thành công";
                     }
                 } else {
                     $baoloi = "Mời nhập đầy đủ thông tin!";
                 }
             }
-
+            
             include './view/TaiKhoan/dat-lai-mk.php';
             break;
 

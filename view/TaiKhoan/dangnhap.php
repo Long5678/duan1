@@ -10,7 +10,7 @@
                 <input type="password" name="pass" id=""><br>
             </div>
             <div class="row mb10" style="display: flex; align-items: center;">
-                <input type="checkbox" name="" id=""><p style="font-family: Roboto-Regular;">Ghi nhớ mật khẩu</p>
+                <input type="checkbox" name="remember_me" id=""><p style="font-family: Roboto-Regular;">Ghi nhớ mật khẩu</p>
             </div>
             <div class="row mb10">
                 <input type="submit" name="dangnhap" value="Đăng nhập">
