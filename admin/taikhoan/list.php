@@ -34,7 +34,7 @@
                                 <td>'.$address_other.'</td>
                                 <td>'.$phone.'</td>
                                 <td>'.$role.'</td>
-                                <td> <a href="'.$xoatk.'"><input type="button" value="Xóa" ></a></td>
+                                <td> <a href="'.$xoatk.'"><input type="button" value="Xóa"></a></td>
                             </tr>';
                             }
                         ?>

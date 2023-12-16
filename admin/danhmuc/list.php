@@ -17,7 +17,7 @@
                         <td><input type="checkbox" name="" id=""></td>
                         <td>'.$id.'</td>
                         <td>'.$name.'</td>
-                        <td><a href="'.$suadm.'"><input type="button" value="Sửa"></a> <a href="'.$xoadm.'"><input type="button" value="Xóa"></a></td>
+                        <td><a href="'.$suadm.'"><input type="button" value="Sửa"></a><a href="'.$xoadm.'"><input type="button" value="Xóa"></a></td>
                     </tr>';
             }
         ?>
